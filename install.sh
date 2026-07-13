@@ -14,14 +14,18 @@ PLUGIN_NAME="hatch-pet-plus"
 CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
 CLAUDE_HOME="${CLAUDE_HOME:-$HOME/.claude}"
 
-DO_CODEX=1; DO_CLAUDE=1; DO_PET=0
+DO_CODEX=1; DO_CLAUDE=1; DO_PET=0; PET_NAME=""
+prev=""
 for a in "$@"; do
   case "$a" in
     --codex)  DO_CLAUDE=0 ;;
     --claude) DO_CODEX=0 ;;
     --pet)    DO_PET=1 ;;
-    -h|--help) sed -n '2,8p' "$0"; exit 0 ;;
+    --list)   ls "$REPO_DIR/pets" 2>/dev/null | grep -v '\.md$' | sed 's/^/  /'; exit 0 ;;
+    -h|--help) sed -n '2,10p' "$0"; exit 0 ;;
+    *)        [ "$prev" = "--pet" ] && PET_NAME="$a" ;;
   esac
+  prev="$a"
 done
 
 say() { printf '  %s\n' "$1"; }
@@ -77,12 +81,19 @@ fi
 
 # ------------------------------------------------------------------ pet
 if [ "$DO_PET" = 1 ]; then
-  echo "Bunny pet"
-  petdir="$CODEX_HOME/pets/bunny"
-  mkdir -p "$petdir"
-  cp "$REPO_DIR/pets/bunny/pet.json" "$REPO_DIR/pets/bunny/spritesheet.webp" "$petdir/"
-  say "pet -> $petdir"
-  say "enable it: Codex Settings -> Appearance / Pets -> Bunny   (then /pet)"
+  pets="${PET_NAME:-$(ls "$REPO_DIR/pets" | grep -v '\.md$')}"
+  echo "Pets"
+  for p in $pets; do
+    src="$REPO_DIR/pets/$p"
+    if [ ! -f "$src/spritesheet.webp" ]; then say "no such pet: $p  (try ./install.sh --list)"; continue; fi
+    petdir="$CODEX_HOME/pets/$p"
+    mkdir -p "$petdir"
+    cp "$src/pet.json" "$src/spritesheet.webp" "$petdir/"
+    say "$p -> $petdir"
+  done
+  say ""
+  say "enable one: Codex Settings -> Appearance / Pets   (then /pet)"
+  say "or set it directly in ~/.codex/config.toml:  selected-avatar-id = \"<name>\""
 fi
 
 echo
