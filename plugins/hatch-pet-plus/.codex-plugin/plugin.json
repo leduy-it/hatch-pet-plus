@@ -1,0 +1,42 @@
+{
+  "name": "hatch-pet-plus",
+  "version": "1.0.0",
+  "description": "Create custom animated Codex pets from art, references, or a concept",
+  "author": {
+    "name": "leduy-it",
+    "url": "https://github.com/leduy-it"
+  },
+  "homepage": "https://github.com/leduy-it/codex-pet-bunny",
+  "repository": "https://github.com/leduy-it/codex-pet-bunny",
+  "license": "MIT",
+  "keywords": [
+    "pet",
+    "sprite",
+    "spritesheet",
+    "mascot",
+    "pixel-art",
+    "imagegen"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Hatch Pet Plus",
+    "shortDescription": "Create custom animated Codex pets",
+    "longDescription": "Build a Codex-compatible animated pet from character art, generated images, or just a concept. Generates the base sprite, all 9 animation rows, and the 16 look directions, then assembles, despills, validates and packages a v2 8x11 spritesheet ready to drop into ~/.codex/pets/. Includes hardened chroma despilling and gaze-direction guidance learned the hard way.",
+    "developerName": "leduy-it",
+    "category": "Creative",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/leduy-it/codex-pet-bunny",
+    "defaultPrompt": [
+      "Make me a custom Codex pet: a tiny friendly flame-tailed lizard",
+      "Turn this character art into a Codex pet",
+      "Hatch a pet mascot for my company"
+    ],
+    "screenshots": [],
+    "brandColor": "#6D98E0",
+    "composerIcon": "./assets/app-icon.png",
+    "logo": "./assets/logo.png"
+  }
+}

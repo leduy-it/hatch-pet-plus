@@ -14,16 +14,20 @@ A cute blue pixel bunny companion for the [Codex](https://openai.com/codex) desk
   <em>idle · waving · jumping · running · review · failed</em>
 </p>
 
-This repo contains the finished pet, the (improved) `hatch-pet` skill used to make it, every intermediate artifact, and — most usefully — **an honest write-up of everything that went wrong**, so you don't hit the same walls.
+This repo contains three things:
+
+1. **The Bunny pet** — ready to install
+2. **`hatch-pet-plus`** — a plugin for **both Codex and Claude Code** that builds pets like this one
+3. **An honest write-up of everything that went wrong** ([docs/LESSONS.md](docs/LESSONS.md)), so you don't hit the same walls
 
 ---
 
 ## Install the pet
 
 ```bash
-git clone https://github.com/<you>/codex-pet-bunny.git
-mkdir -p ~/.codex/pets/bunny
-cp codex-pet-bunny/pet/* ~/.codex/pets/bunny/
+git clone https://github.com/leduy-it/codex-pet-bunny.git
+cd codex-pet-bunny
+./install.sh --pet
 ```
 
 Then in Codex: **Settings → Appearance / Pets → Bunny**, and `/pet` to wake it.
@@ -34,6 +38,60 @@ Or set it directly in `~/.codex/config.toml`:
 [desktop]
 selected-avatar-id = "bunny"
 ```
+
+---
+
+## Install the plugin
+
+`hatch-pet-plus` builds custom Codex pets. It ships **one plugin directory with two manifests**
+(`.codex-plugin/` and `.claude-plugin/`), sharing a single `skills/` folder — so it works in both hosts.
+
+### Marketplace install
+
+**Claude Code**
+
+```
+/plugin marketplace add leduy-it/codex-pet-bunny
+/plugin install hatch-pet-plus@leduy-pets
+```
+
+**Codex** — add to `~/.agents/plugins/marketplace.json`:
+
+```json
+{
+  "name": "personal",
+  "interface": { "displayName": "Personal Plugins" },
+  "plugins": [
+    {
+      "name": "hatch-pet-plus",
+      "source": { "source": "local", "path": "~/.codex/plugins/hatch-pet-plus" },
+      "policy": { "installation": "AVAILABLE" },
+      "category": "Creative"
+    }
+  ]
+}
+```
+
+### Local install
+
+```bash
+./install.sh              # both hosts
+./install.sh --codex      # Codex only
+./install.sh --claude     # Claude Code only
+./install.sh --pet        # also install the Bunny pet
+```
+
+The Codex path copies the plugin to `~/.codex/plugins/hatch-pet-plus` and registers it in your
+personal marketplace. The Claude Code path prints the two `/plugin` commands to run.
+
+### Using it
+
+```
+/hatch-pet a tiny friendly flame-tailed lizard
+```
+
+> **Note:** image generation needs a host with an image tool. Codex has built-in `image_gen`.
+> Claude Code does not — there, the plugin delegates generation to Codex via `codex exec`.
 
 ---
 
@@ -133,15 +191,24 @@ Nearly every real defect here was caught by a script, not by looking: size-poppi
 ## Repo layout
 
 ```
-pet/         the installable pet (pet.json + spritesheet.webp)
-skill/       the hatch-pet skill used to build it
-examples/    reference art, canonical base, row strips, contact sheet, preview GIFs
-docs/        the full lessons write-up
+pet/                              the installable pet (pet.json + spritesheet.webp)
+plugins/hatch-pet-plus/           the dual-host plugin
+  ├── .codex-plugin/plugin.json     Codex manifest
+  ├── .claude-plugin/plugin.json    Claude Code manifest
+  ├── skills/hatch-pet/             the skill (shared by both hosts)
+  └── commands/hatch-pet.md         /hatch-pet slash command
+.claude-plugin/marketplace.json   makes this repo a Claude Code marketplace
+install.sh                        local install for both hosts
+examples/                         reference art, base, row strips, contact sheet, GIFs
+docs/LESSONS.md                   the full write-up
 ```
 
 ---
 
-## Credits
+## Credits & licensing
 
-Built with OpenAI's [`hatch-pet`](https://github.com/openai/skills/tree/main/skills/.curated/hatch-pet) skill (see `skill/LICENSE.txt`).
+The bundled skill is OpenAI's [`hatch-pet`](https://github.com/openai/skills/tree/main/skills/.curated/hatch-pet);
+its licence is preserved at `plugins/hatch-pet-plus/skills/hatch-pet/LICENSE.txt` and applies to that directory.
+The plugin wrapper, installer, docs and pet art in this repo are MIT.
+
 Pet art generated with Codex's built-in `image_gen`.
