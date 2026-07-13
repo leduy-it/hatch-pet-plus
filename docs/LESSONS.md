@@ -25,6 +25,62 @@ Never trust an exit code, a "done" message, or a returned path.
 
 ---
 
+## 0b. `validate_atlas` passes pets that are visibly broken
+
+This is the single most important thing in this document.
+
+Across 13 pets, the official validator reported **`ok: true, 0 errors`** on sprites that had:
+
+- a **solid magenta rectangle baked into them** (the model ignored the requested chroma colour)
+- a **violet fringe on 50% of every silhouette edge**
+- a pet that **halved in size the moment you hovered it**
+
+None of these were caught. The contact sheets looked fine. The preview GIFs looked fine. Every check
+was green.
+
+They were only found by **measuring pixels**:
+
+| defect | the measurement that caught it |
+| --- | --- |
+| baked-in background | % of sprite pixels near *any* chroma key, cross-checked against the pet's own palette |
+| chroma fringe | % of silhouette-edge pixels leaning toward the key colour |
+| hover shrink | median sprite height per lane, compared across lanes |
+| gaze not encoded | muzzle/aiming-feature offset per look cell |
+| frame popping | bounding-box height spread within a lane |
+
+`validate_atlas` checks geometry and contamination **by the declared key**. That is a narrow slice of
+what can go wrong. Write your own checks, and make packaging depend on them.
+
+---
+
+## 0c. The model ignores the chroma colour you asked for
+
+Mossback's run declared `#00FFFF` (cyan). The model drew `idle` and `running-left` on **magenta**
+anyway. The extractor keyed out cyan, so the magenta background survived as an **opaque rectangle**
+inside the sprite.
+
+**Never trust the declared key.** Detect each strip's *actual* background from its corner pixels and
+force it onto the declared key before extraction:
+
+```python
+corners = np.array([a[3,3], a[3,w-4], a[h-4,3], a[h-4,w-4]])
+bg = np.median(corners, axis=0)          # the REAL background
+if np.abs(bg - KEY).sum() > 40:
+    a[np.linalg.norm(a - bg, axis=2) <= 110] = KEY   # force it
+```
+
+Related: **pick a key that is far from the pet's palette.** `prepare_pet_run` assigned Blip magenta —
+but Blip is blue with a violet outline, so the key sat right on top of the sprite's own colours and
+the spill could not be separated from the art. Compute the key from the base art instead:
+
+| pet | palette | key chosen |
+| --- | --- | --- |
+| Blip | blue / violet | green |
+| Mossback, Pip, Kiln | greens, earth | cyan |
+| Sprocket (robots) | slate-blue, amber | magenta |
+
+---
+
 ## 1. `codex exec --profile` silently does nothing (codex-cli ≥ 0.139)
 
 **Symptom:** the run "succeeds" instantly. Exit code 0. Empty result file. Zero work done.
@@ -195,6 +251,53 @@ slot   deg     muzzle dx
 ```
 
 The head turned right, peaked early, then rotated back the wrong way. Measure `dx`/`dy` per cell and assert monotonicity — do not trust a glance at a contact sheet.
+
+---
+
+## 5b. The pet halved in size when you hovered it — and no prompt could fix it
+
+`jumping` rendered at **129px** against **197px** for `idle`. Hover is the most-triggered animation,
+so the pet visibly shrank by a third every time the cursor touched it.
+
+**The cause is the extractor, not the model.** `extract_strip_frames` fits each row to its **own
+bounding box**. The jumping row's bbox spans the whole jump *arc* — pet **plus** vertical travel —
+so scaling that taller box into the fixed 192×208 cell shrinks the pet inside it.
+
+No instruction like "draw it the same size as idle" can fix this: the shrink happens **after**
+generation.
+
+And you cannot simply scale `jumping` back up — the airborne frames then push out of the top of the
+cell and get clipped. A 197px pet plus travel does not fit in a 208px cell. It is geometry.
+
+**The fix is a deterministic post-extraction pass**: normalise every lane to a common sprite height
+(~78% of the cell) anchored to a common baseline, preserving each frame's own vertical offset. That
+leaves real headroom for the jump.
+
+Result: **35% lane spread → 1%**.
+
+> Watch out for LANCZOS. Scaling *up* (bot-pixel needed ×2.25) sprays faint non-zero alpha across the
+> whole cell, which then reads as "background baked in" — 65% opaque, 66% border ring — even though
+> it is invisible. Clamp alpha below ~24 to zero after resampling.
+
+---
+
+## 5c. The frame extractor silently produces empty frames
+
+bot-pixel's six idle robots were drawn close together, so adjacent arms touched. `extract_strip_frames`
+segments poses by **connected component** — so two robots fused into one, and the rest came out empty:
+
+```
+00.png  h=71  w=182   <- two robots merged
+01.png  h=71  w=50
+02.png  h=8   w=6     <- EMPTY
+03.png  h=8   w=7     <- EMPTY
+```
+
+Both `--method auto` and `--method stable-slots` did this. The source strip was perfectly fine.
+
+**Fix:** the poses are evenly spaced by construction, so slice the strip into N equal columns and fit
+each to the cell with one shared scale and a common baseline. Deterministic, and immune to poses that
+touch.
 
 ---
 

@@ -1,0 +1,7 @@
+{
+  "id": "pip",
+  "displayName": "Pip",
+  "description": "Pip — a Codex pet.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

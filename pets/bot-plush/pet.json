@@ -1,0 +1,7 @@
+{
+  "id": "bot-plush",
+  "displayName": "Sprocket Plush",
+  "description": "Sprocket Plush — a Codex pet.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

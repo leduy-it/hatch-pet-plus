@@ -80,7 +80,7 @@ if [ "$DO_PET" = 1 ]; then
   echo "Bunny pet"
   petdir="$CODEX_HOME/pets/bunny"
   mkdir -p "$petdir"
-  cp "$REPO_DIR/pet/pet.json" "$REPO_DIR/pet/spritesheet.webp" "$petdir/"
+  cp "$REPO_DIR/pets/bunny/pet.json" "$REPO_DIR/pets/bunny/spritesheet.webp" "$petdir/"
   say "pet -> $petdir"
   say "enable it: Codex Settings -> Appearance / Pets -> Bunny   (then /pet)"
 fi

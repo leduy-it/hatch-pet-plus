@@ -1,0 +1,7 @@
+{
+  "id": "bot-pixel",
+  "displayName": "Sprocket Pixel",
+  "description": "Sprocket Pixel — a pixel-art robot Codex pet.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

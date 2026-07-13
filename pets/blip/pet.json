@@ -1,0 +1,7 @@
+{
+  "id": "blip",
+  "displayName": "Blip",
+  "description": "Blip — a Codex pet.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "bot-sticker",
+  "displayName": "Sprocket Sticker",
+  "description": "Sprocket Sticker — a Codex pet.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

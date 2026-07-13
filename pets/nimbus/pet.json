@@ -1,0 +1,7 @@
+{
+  "id": "nimbus",
+  "displayName": "Nimbus",
+  "description": "Nimbus — a Codex pet.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

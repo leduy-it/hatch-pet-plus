@@ -1,7 +1,7 @@
 {
   "id": "bunny",
   "displayName": "Bunny",
-  "description": "A cute blue pixel bunny companion.",
+  "description": "Bunny — a Codex pet.",
   "spriteVersionNumber": 2,
   "spritesheetPath": "spritesheet.webp"
 }

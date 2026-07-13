@@ -1,14 +1,28 @@
 # 🐣 hatch-pet-plus — make any Codex pet, in any style
 
 A plugin for **Codex** and **Claude Code** that turns a concept — or a piece of character art — into a
-fully animated Codex pet. Plus a gallery of ready-made mascots you're free to use.
+fully animated Codex pet. Plus **[13 ready-to-install pets](pets/)** and free CC0 mascot art.
+
+<p align="center">
+  <img src="examples/showcase-all-idle.gif" width="960" alt="All 13 pets idling">
+</p>
+
+<p align="center">
+  <em>13 complete pets — each a full 8×11 atlas: 9 animation lanes + 16 look directions, all validated</em>
+</p>
+
+Every one is built end-to-end and passes independent QA. Grab any of them:
+
+```bash
+cp -r pets/mossback ~/.codex/pets/
+```
 
 <p align="center">
   <img src="examples/showcase-mascots.png" width="760" alt="Six original mascots in six different styles">
 </p>
 
 <p align="center">
-  <em>Mossback · Nimbus · Kiln · Blip · Pip · Inko — six original mascots, six styles, all generated from a text concept alone</em>
+  <em>Mossback · Nimbus · Kiln · Blip · Pip · Inko — six original mascots, six styles, all invented from a text concept alone</em>
 </p>
 
 ---
