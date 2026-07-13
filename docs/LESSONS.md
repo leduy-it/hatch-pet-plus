@@ -1,6 +1,27 @@
-# Lessons from building a custom Codex pet
+# Lessons from building custom Codex pets
 
 Everything that went wrong, with the measurements. Written so the next person doesn't repeat it.
+
+---
+
+## 0. A model will claim success without doing the work
+
+Generating six mascots in parallel, **three of them printed their `OUT=<path>` line, burned ~23k
+tokens, and never called `image_gen` at all.** No file. No error. Exit 0.
+
+They were simply obeying the "print exactly this" instruction and skipping the work.
+
+**Fix — make the prompt force proof of the artifact:**
+
+> A previous run printed the OUT= line WITHOUT ever calling image_gen and WITHOUT writing the file.
+> That is a FAILURE. You MUST: (1) call image_gen, (2) copy the result to the path,
+> (3) run `ls -la <path>` to prove it exists, (4) only then print the final block, including the
+> real byte size from that ls.
+
+With that added, the next batch came back **6/6** instead of 3/6.
+
+**The general rule, which bit us three separate ways in this project:** verify the artifact on disk.
+Never trust an exit code, a "done" message, or a returned path.
 
 ---
 
@@ -53,11 +74,23 @@ This cut 8 sequential rows (~15 min) down to ~4 min.
 
 Three separate bugs, all producing a green halo.
 
-### 3a. Soft edges keep the key colour
+### 3a. Soft edges keep the key colour — and it depends on the STYLE
 
-The extractor cuts on a hard colour-distance threshold with **no despill**. Semi-transparent fur pixels keep their green tint.
+The extractor cuts on a hard colour-distance threshold with **no despill**. Semi-transparent edge pixels keep their green tint.
 
-Measured on a 3D fluffy-fur render: **34.67%** of silhouette edge pixels green-contaminated. Pixel art with hard edges: ~10%.
+How bad this is depends entirely on the art style. Measured green contamination on the silhouette edge of a fresh base, one mascot per style:
+
+| style | green edge | after despill |
+| --- | --- | --- |
+| `flat-vector` | 9.1% | **0.0%** |
+| `clay` | 11.2% | **0.0%** |
+| `sticker` | 15.0% | **0.0%** |
+| `3d-toy` | 16.1% | **0.0%** |
+| `plush` | 17.1% | **0.0%** |
+| `painterly` | 19.2% | **0.0%** |
+| *(3D fluffy fur)* | **34.7%** | **0.0%** |
+
+Hard geometric edges key cleanest. Wispy brush edges and fur are worst. **No style is clean out of the box** — every one of them needs despilling, and despilling fixes every one of them completely.
 
 **Fix — despill before extraction.** On sprite pixels, clamp green to `max(red, blue)`:
 

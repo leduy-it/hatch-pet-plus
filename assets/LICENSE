@@ -1,0 +1,22 @@
+CC0 1.0 Universal — Public Domain Dedication
+
+The mascot artwork in this `assets/` directory (Mossback, Nimbus, Kiln, Blip, Pip, Inko,
+Sprocket, and the Bunny pet sprites) is dedicated to the public domain.
+
+To the extent possible under law, the author(s) have waived all copyright and related or
+neighbouring rights to this artwork. You may copy, modify, distribute and use it, including
+for commercial purposes, all without asking permission.
+
+No attribution is required. It is appreciated but not necessary.
+
+THE ARTWORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
+Full text: https://creativecommons.org/publicdomain/zero/1.0/
+
+---
+
+Note: this dedication covers the ARTWORK ONLY.
+
+- The `hatch-pet` skill bundled in `plugins/hatch-pet-plus/skills/hatch-pet/` is OpenAI's work
+  and retains its own licence (see the LICENSE.txt in that directory).
+- The plugin wrapper, installer and documentation in this repository are MIT.

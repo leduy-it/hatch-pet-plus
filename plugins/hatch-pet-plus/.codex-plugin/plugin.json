@@ -1,7 +1,7 @@
 {
   "name": "hatch-pet-plus",
   "version": "1.0.0",
-  "description": "Create custom animated Codex pets from art, references, or a concept",
+  "description": "Create custom animated Codex pets \u2014 any mascot, any style. Turn a text concept or your own character art into a fully animated pet: base sprite, 9 animation rows, 16 look directions, then despill, validate and package a v2 8x11 spritesheet.",
   "author": {
     "name": "leduy-it",
     "url": "https://github.com/leduy-it"
@@ -11,17 +11,21 @@
   "license": "MIT",
   "keywords": [
     "pet",
+    "mascot",
     "sprite",
     "spritesheet",
-    "mascot",
+    "character",
+    "imagegen",
     "pixel-art",
-    "imagegen"
+    "plush",
+    "clay",
+    "vector"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Hatch Pet Plus",
-    "shortDescription": "Create custom animated Codex pets",
-    "longDescription": "Build a Codex-compatible animated pet from character art, generated images, or just a concept. Generates the base sprite, all 9 animation rows, and the 16 look directions, then assembles, despills, validates and packages a v2 8x11 spritesheet ready to drop into ~/.codex/pets/. Includes hardened chroma despilling and gaze-direction guidance learned the hard way.",
+    "shortDescription": "Create custom animated Codex pets \u2014 any mascot, any style",
+    "longDescription": "Build a Codex-compatible animated pet from a concept, character art, generated images, or a brand's visual system. The mascot can be a creature, an object, a plant, a shape or a company mascot \u2014 it does not have to be an animal. Nine style presets: pixel, plush, clay, sticker, flat-vector, 3d-toy, painterly, brand-inspired, and auto. Generates the base, all 9 animation rows and the 16 look directions, then assembles, despills, validates and packages a v2 8x11 spritesheet ready for ~/.codex/pets/. Includes hardened chroma despilling (every style needs it) and gaze-direction guidance learned the hard way.",
     "developerName": "leduy-it",
     "category": "Creative",
     "capabilities": [
@@ -30,9 +34,10 @@
     ],
     "websiteURL": "https://github.com/leduy-it/codex-pet-bunny",
     "defaultPrompt": [
-      "Make me a custom Codex pet: a tiny friendly flame-tailed lizard",
+      "Make me a Codex pet: a pot-bellied terracotta jar-creature, claymation style",
       "Turn this character art into a Codex pet",
-      "Hatch a pet mascot for my company"
+      "Create a plush mascot pet for my company",
+      "Make a flat-vector robot pet"
     ],
     "screenshots": [],
     "brandColor": "#6D98E0",

@@ -1,10 +1,62 @@
-# 🐰 Bunny — a custom Codex pet
+# 🐣 hatch-pet-plus — make any Codex pet, in any style
 
-A cute blue pixel bunny companion for the [Codex](https://openai.com/codex) desktop app, built with the `hatch-pet` skill.
+A plugin for **Codex** and **Claude Code** that turns a concept — or a piece of character art — into a
+fully animated Codex pet. Plus a gallery of ready-made mascots you're free to use.
 
 <p align="center">
-  <img src="examples/hero.gif" width="200" alt="Bunny idle animation">
+  <img src="examples/showcase-mascots.png" width="760" alt="Six original mascots in six different styles">
 </p>
+
+<p align="center">
+  <em>Mossback · Nimbus · Kiln · Blip · Pip · Inko — six original mascots, six styles, all generated from a text concept alone</em>
+</p>
+
+---
+
+## It is not just pixel art, and not just animals
+
+The style is a dial. Here is the **same** robot — *Sprocket* — rendered across six style presets:
+
+<p align="center">
+  <img src="examples/showcase-robot-styles.png" width="900" alt="One robot rendered in pixel, plush, clay, flat-vector, 3d-toy and sticker styles">
+</p>
+
+<p align="center">
+  <em>pixel · plush · clay · flat-vector · 3d-toy · sticker</em>
+</p>
+
+| preset | look |
+| --- | --- |
+| `pixel` | chunky retro sprite, limited flat palette |
+| `plush` | felt / soft toy, stitched seams, fabric weave |
+| `clay` | claymation, thumbprints, matte earthenware |
+| `sticker` | die-cut vinyl, bold white border, glossy |
+| `flat-vector` | clean geometric shapes, flat fills, no texture |
+| `3d-toy` | glossy moulded vinyl, studio highlights |
+| `painterly` | brushstrokes, pigment, expressive edges |
+| `brand-inspired` | derived from a company's visual system |
+| `auto` | inferred from your prompt (default) |
+
+The mascot can be anything — a creature, an object, a plant, a shape, a company mascot. It does not
+have to be an animal.
+
+---
+
+## Two ways in — both first-class
+
+**From a concept.** No art needed. Every mascot in the gallery above was invented from a sentence.
+
+```
+/hatch-pet a pot-bellied terracotta jar-creature with a lid for a hat, claymation style
+```
+
+**From reference art.** Anchor the identity to images you already have.
+
+```
+/hatch-pet turn these three character sheets into a pet   (attach the images)
+```
+
+The example pet in this repo — **Bunny** — was built the second way, from three reference renders.
 
 <p align="center">
   <img src="examples/demo.gif" width="900" alt="Bunny animations: idle, waving, jumping, running, review, failed">
@@ -14,39 +66,11 @@ A cute blue pixel bunny companion for the [Codex](https://openai.com/codex) desk
   <em>idle · waving · jumping · running · review · failed</em>
 </p>
 
-This repo contains three things:
-
-1. **The Bunny pet** — ready to install
-2. **`hatch-pet-plus`** — a plugin for **both Codex and Claude Code** that builds pets like this one
-3. **An honest write-up of everything that went wrong** ([docs/LESSONS.md](docs/LESSONS.md)), so you don't hit the same walls
-
 ---
 
-## Install the pet
+## Install
 
-```bash
-git clone https://github.com/leduy-it/codex-pet-bunny.git
-cd codex-pet-bunny
-./install.sh --pet
-```
-
-Then in Codex: **Settings → Appearance / Pets → Bunny**, and `/pet` to wake it.
-
-Or set it directly in `~/.codex/config.toml`:
-
-```toml
-[desktop]
-selected-avatar-id = "bunny"
-```
-
----
-
-## Install the plugin
-
-`hatch-pet-plus` builds custom Codex pets. It ships **one plugin directory with two manifests**
-(`.codex-plugin/` and `.claude-plugin/`), sharing a single `skills/` folder — so it works in both hosts.
-
-### Marketplace install
+### Plugin — marketplace
 
 **Claude Code**
 
@@ -55,7 +79,7 @@ selected-avatar-id = "bunny"
 /plugin install hatch-pet-plus@leduy-pets
 ```
 
-**Codex** — add to `~/.agents/plugins/marketplace.json`:
+**Codex** — register `~/.codex/plugins/hatch-pet-plus` in `~/.agents/plugins/marketplace.json`:
 
 ```json
 {
@@ -72,32 +96,47 @@ selected-avatar-id = "bunny"
 }
 ```
 
-### Local install
+### Plugin — local
 
 ```bash
+git clone https://github.com/leduy-it/codex-pet-bunny.git
+cd codex-pet-bunny
 ./install.sh              # both hosts
 ./install.sh --codex      # Codex only
 ./install.sh --claude     # Claude Code only
 ./install.sh --pet        # also install the Bunny pet
 ```
 
-The Codex path copies the plugin to `~/.codex/plugins/hatch-pet-plus` and registers it in your
-personal marketplace. The Claude Code path prints the two `/plugin` commands to run.
+One plugin directory carries **both manifests** (`.codex-plugin/` and `.claude-plugin/`) and shares a
+single `skills/` folder, so it installs into either host.
 
-### Using it
+> Image generation needs a host with an image tool. Codex has built-in `image_gen`; Claude Code does
+> not — from there the plugin delegates generation to Codex via `codex exec`.
 
+### The Bunny pet
+
+```bash
+./install.sh --pet
 ```
-/hatch-pet a tiny friendly flame-tailed lizard
-```
 
-> **Note:** image generation needs a host with an image tool. Codex has built-in `image_gen`.
-> Claude Code does not — there, the plugin delegates generation to Codex via `codex exec`.
+Then **Codex Settings → Appearance / Pets → Bunny**, and `/pet` to wake it.
 
 ---
 
-## What the pet does
+## Free mascot assets
 
-The atlas is an **8 × 11 grid** of `192×208` cells (`1536×2288`, `spriteVersionNumber: 2`).
+Everything in [`assets/`](assets/) is **CC0 / public domain** — use it for anything, no attribution needed.
+
+Each mascot ships as a raw `base.png` (green-screen, for feeding back into the pipeline) and a
+despilled transparent `cutout.png` (ready to drop into a game, slide or app).
+
+See [assets/README.md](assets/README.md).
+
+---
+
+## What a pet actually is
+
+An **8 × 11 grid** of `192×208` cells (`1536×2288`, `spriteVersionNumber: 2`).
 Rows 0–8 are animation states; rows 9–10 are 16 look directions.
 
 **You trigger these:**
@@ -105,12 +144,10 @@ Rows 0–8 are animation states; rows 9–10 are 16 look directions.
 | Action | Animation |
 | --- | --- |
 | **Hover** the pet | `jumping` |
-| **Drag** it right | `running-right` |
-| **Drag** it left | `running-left` |
-| **Move your cursor** around | rows 9–10 — the bunny's head *follows your pointer* |
-| Greeting | `waving` |
+| **Drag** it right / left | `running-right` / `running-left` |
+| **Move your cursor** | rows 9–10 — the pet's head *follows your pointer* |
 
-**Codex triggers these, based on what the agent is doing:**
+**Codex triggers these:**
 
 | When Codex is… | Animation |
 | --- | --- |
@@ -126,89 +163,60 @@ Rows 0–8 are animation states; rows 9–10 are 16 look directions.
 
 ---
 
-## How it was built
+## Style affects how well it cuts out
 
-1. **Reference art** → three 3D plush bunny images (`examples/bunny-0*.png`)
-2. **Base sprite** → one canonical identity image, pixel-art style (`examples/canonical-base.png`)
-3. **9 animation rows** → one `image_gen` call per row, each grounded on the canonical base + a layout guide
-4. **`running-left`** → deterministically mirrored from `running-right` (frame order preserved)
-5. **Look rows 9–10** → 4 cardinal anchors (up/right/down/left), then two 8-pose sweeps
-6. **Despill → extract → atlas → validate → package**
+The pipeline keys the pet off a flat green screen into transparent cells. **Soft styles key badly.**
+Measured green contamination on the silhouette edge of a fresh base:
 
-Validation on the shipped atlas: **0 errors, 0 warnings** (`examples/validation.json`).
+| style | before despill | after |
+| --- | --- | --- |
+| `flat-vector` | 9.1% | **0.0%** |
+| `clay` | 11.2% | **0.0%** |
+| `sticker` | 15.0% | **0.0%** |
+| `3d-toy` | 16.1% | **0.0%** |
+| `plush` | 17.1% | **0.0%** |
+| `painterly` | 19.2% | **0.0%** |
+
+Hard geometric edges key cleanest; wispy brush edges are worst. **No style is clean out of the box** —
+they all need the despill pass, which fixes every one of them completely.
 
 ---
 
-## 📌 Lessons learned (read this before you build your own)
+## 📌 Lessons learned
 
-Full write-up: **[docs/LESSONS.md](docs/LESSONS.md)**. The short version:
+Full write-up: **[docs/LESSONS.md](docs/LESSONS.md)**. The greatest hits:
 
-### 1. `codex exec --profile` is broken on codex-cli ≥ 0.139 — and it exits 0
-
-```
-Error loading config.toml: --profile `deep` cannot be used while config.toml
-contains legacy `profile = "deep"` or `[profiles.deep]` config
-```
-
-It **still exits 0** and writes an empty `--output-last-message` file. A supervisor that trusts the exit code will think the run succeeded when nothing ran. **Verify artifacts on disk, never exit codes.**
-
-### 2. Subagents deadlock in headless `codex exec`
-
-The skill's "lightweight visual workers" pattern assumes an interactive session. In `codex exec`, the worker call returns `completed` but never delivers an image, and the parent blocks forever. **Call `image_gen` inline instead.**
-
-For parallelism, run **one `codex exec` process per row** and have each write only its own PNG — never let concurrent processes touch `imagegen-jobs.json`, or they clobber each other's writes.
-
-### 3. Fluffy fur leaves a green halo
-
-Chroma-key extraction uses a hard distance threshold with no despill, so soft fur edges keep their green tint. Measured **34.7%** of edge pixels contaminated on a 3D fur render.
-
-**Fix:** clamp green to `max(r, b)` on sprite pixels *before* extraction — and match the extractor's `--key-threshold` (default **96**, not 120, which cost us 57 validation errors). Result: **~10% → 0.0%**.
-
-Also: write the final WebP **lossless** (`lossless=True, exact=True`). PIL's default lossy encoder corrupts RGB in fully-transparent pixels and trips the "transparent pixels with non-zero RGB residue" check.
-
-### 4. Diffusion models don't make *true* pixel art
-
-They paint a high-resolution image that *imitates* pixels — inconsistent block sizes, soft shading, tens of thousands of colours. Our "pixel" sprite has **61,734 distinct colours**, not the 12 a real sprite would have.
-
-**Do not try to fix this by downscaling.** We tried; it destroys exactly what makes a sprite charming (a 1px eye highlight, a 3px mouth, a 1px outline all land on fractions of a pixel and get mangled). Accept the faux-pixel look, or hand-author real pixel art.
-
-### 5. Gaze direction is the hardest part
-
-Asking for **pupil shifts** does not work — measured pupil movement inside the eye was **0.38px vertically, 1.56px horizontally**. Invisible.
-
-**What works:** move the *head*, not the eyes.
-- **Left/right** → turn the head into a three-quarter view; the muzzle and nose swing to that side.
-- **Up/down** → tilt the head; the muzzle *rides high* (up) or *drops low* (down).
-
-Verify it numerically — measure the muzzle offset per cell. Don't trust your eyes on a 192px sprite.
-
-### 6. Measure, don't eyeball
-
-Nearly every real defect here was caught by a script, not by looking: size-popping between frames, chroma contamination, non-monotonic gaze sweeps, identity drift. Contact sheets look fine right up until you measure them.
+- **`codex exec --profile` is broken** on codex-cli ≥ 0.139 — and it **exits 0** while doing nothing.
+- **Subagents deadlock** in headless `codex exec`. Call `image_gen` inline; parallelise with one process per row.
+- **A model will print `OUT=<path>` without ever generating the file.** Verify the artifact, never the report. (This cost us 3 of 6 mascots on the first run.)
+- **Despill before extracting**, and match the extractor's threshold (**96**, not 120).
+- **Write the final WebP lossless** — the default lossy encoder corrupts RGB in transparent pixels.
+- **Diffusion models can't make *true* pixel art**, and you cannot fix it by downscaling.
+- **Gaze comes from the head, not the pupils** — pupil shifts measured under 2px are invisible.
+- **Measure, don't eyeball.** Nearly every real defect was caught by a script.
 
 ---
 
 ## Repo layout
 
 ```
-pet/                              the installable pet (pet.json + spritesheet.webp)
-plugins/hatch-pet-plus/           the dual-host plugin
-  ├── .codex-plugin/plugin.json     Codex manifest
-  ├── .claude-plugin/plugin.json    Claude Code manifest
-  ├── skills/hatch-pet/             the skill (shared by both hosts)
-  └── commands/hatch-pet.md         /hatch-pet slash command
-.claude-plugin/marketplace.json   makes this repo a Claude Code marketplace
-install.sh                        local install for both hosts
-examples/                         reference art, base, row strips, contact sheet, GIFs
-docs/LESSONS.md                   the full write-up
+plugins/hatch-pet-plus/     the dual-host plugin
+  ├── .codex-plugin/          Codex manifest
+  ├── .claude-plugin/         Claude Code manifest
+  ├── skills/hatch-pet/       the skill (shared by both hosts)
+  └── commands/hatch-pet.md   /hatch-pet
+.claude-plugin/             makes this repo a Claude Code marketplace
+assets/                     free CC0 mascot art (base + transparent cutout)
+pet/                        the Bunny pet, installable
+examples/                   showcases, contact sheet, preview GIFs
+docs/LESSONS.md             the full write-up
+install.sh                  local install for both hosts
 ```
 
 ---
 
-## Credits & licensing
+## Licensing
 
-The bundled skill is OpenAI's [`hatch-pet`](https://github.com/openai/skills/tree/main/skills/.curated/hatch-pet);
-its licence is preserved at `plugins/hatch-pet-plus/skills/hatch-pet/LICENSE.txt` and applies to that directory.
-The plugin wrapper, installer, docs and pet art in this repo are MIT.
-
-Pet art generated with Codex's built-in `image_gen`.
+- **`assets/`** — CC0 / public domain. Use freely.
+- **`plugins/hatch-pet-plus/skills/hatch-pet/`** — OpenAI's [`hatch-pet`](https://github.com/openai/skills/tree/main/skills/.curated/hatch-pet) skill; its own licence applies (see the LICENSE.txt in that directory).
+- **Everything else** (plugin wrapper, installer, docs) — MIT.

@@ -1,7 +1,7 @@
 {
   "name": "hatch-pet-plus",
   "version": "1.0.0",
-  "description": "Create custom animated Codex pets from character art, references, or just a concept. Generates the base sprite, all 9 animation rows and 16 look directions, then despills, validates and packages a v2 8x11 spritesheet.",
+  "description": "Create custom animated Codex pets \u2014 any mascot, any style. Turn a text concept or your own character art into a fully animated pet: base sprite, 9 animation rows, 16 look directions, then despill, validate and package a v2 8x11 spritesheet.",
   "author": {
     "name": "leduy-it",
     "url": "https://github.com/leduy-it"
@@ -11,9 +11,14 @@
   "license": "MIT",
   "keywords": [
     "pet",
+    "mascot",
     "sprite",
     "spritesheet",
-    "mascot",
-    "pixel-art"
+    "character",
+    "imagegen",
+    "pixel-art",
+    "plush",
+    "clay",
+    "vector"
   ]
 }
