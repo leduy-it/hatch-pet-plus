@@ -70,7 +70,7 @@ have to be an animal.
 /hatch-pet turn these three character sheets into a pet   (attach the images)
 ```
 
-The example pet in this repo — **Bunny** — was built the second way, from three reference renders.
+**Bunny** was built the second way, from three reference renders. The other 12 came from a sentence.
 
 <p align="center">
   <img src="examples/demo.gif" width="900" alt="Bunny animations: idle, waving, jumping, running, review, failed">
@@ -89,7 +89,7 @@ The example pet in this repo — **Bunny** — was built the second way, from th
 **Claude Code**
 
 ```
-/plugin marketplace add leduy-it/codex-pet-bunny
+/plugin marketplace add leduy-it/hatch-pet-plus
 /plugin install hatch-pet-plus@leduy-pets
 ```
 
@@ -113,12 +113,14 @@ The example pet in this repo — **Bunny** — was built the second way, from th
 ### Plugin — local
 
 ```bash
-git clone https://github.com/leduy-it/codex-pet-bunny.git
-cd codex-pet-bunny
-./install.sh              # both hosts
-./install.sh --codex      # Codex only
-./install.sh --claude     # Claude Code only
-./install.sh --pet        # also install the Bunny pet
+git clone https://github.com/leduy-it/hatch-pet-plus.git
+cd hatch-pet-plus
+./install.sh                 # plugin, both hosts
+./install.sh --codex         # Codex only
+./install.sh --claude        # Claude Code only
+./install.sh --list          # list the 13 pets
+./install.sh --pet           # install ALL 13 pets
+./install.sh --pet mossback  # install one
 ```
 
 One plugin directory carries **both manifests** (`.codex-plugin/` and `.claude-plugin/`) and shares a
@@ -127,13 +129,15 @@ single `skills/` folder, so it installs into either host.
 > Image generation needs a host with an image tool. Codex has built-in `image_gen`; Claude Code does
 > not — from there the plugin delegates generation to Codex via `codex exec`.
 
-### The Bunny pet
+### The pets
 
 ```bash
-./install.sh --pet
+./install.sh --pet mossback     # or any of the 13
+./install.sh --pet              # all of them
 ```
 
-Then **Codex Settings → Appearance / Pets → Bunny**, and `/pet` to wake it.
+Then **Codex Settings → Appearance / Pets → pick one**, and `/pet` to wake it.
+See **[pets/](pets/)** for the full list, lane-by-lane detail, and each pet's QA report.
 
 ---
 
@@ -220,8 +224,9 @@ plugins/hatch-pet-plus/     the dual-host plugin
   ├── skills/hatch-pet/       the skill (shared by both hosts)
   └── commands/hatch-pet.md   /hatch-pet
 .claude-plugin/             makes this repo a Claude Code marketplace
+  └── scripts/                hardening + QA scripts
+pets/                       13 installable pets (atlas, contact sheet, per-lane GIFs, validation)
 assets/                     free CC0 mascot art (base + transparent cutout)
-pet/                        the Bunny pet, installable
 examples/                   showcases, contact sheet, preview GIFs
 docs/LESSONS.md             the full write-up
 install.sh                  local install for both hosts

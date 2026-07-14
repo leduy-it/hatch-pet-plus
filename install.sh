@@ -74,7 +74,7 @@ if [ "$DO_CLAUDE" = 1 ] && [ -d "$CLAUDE_HOME" ]; then
   say "run this inside Claude Code:"
   say "    /plugin marketplace add $REPO_DIR"
   say "    /plugin install $PLUGIN_NAME@leduy-pets"
-  say "(or from GitHub: /plugin marketplace add leduy-it/codex-pet-bunny)"
+  say "(or from GitHub: /plugin marketplace add leduy-it/hatch-pet-plus)"
 else
   [ "$DO_CLAUDE" = 1 ] && say "Claude Code not found at $CLAUDE_HOME — skipped"
 fi

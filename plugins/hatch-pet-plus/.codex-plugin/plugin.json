@@ -6,8 +6,8 @@
     "name": "leduy-it",
     "url": "https://github.com/leduy-it"
   },
-  "homepage": "https://github.com/leduy-it/codex-pet-bunny",
-  "repository": "https://github.com/leduy-it/codex-pet-bunny",
+  "homepage": "https://github.com/leduy-it/hatch-pet-plus",
+  "repository": "https://github.com/leduy-it/hatch-pet-plus",
   "license": "MIT",
   "keywords": [
     "pet",
@@ -32,7 +32,7 @@
       "Interactive",
       "Write"
     ],
-    "websiteURL": "https://github.com/leduy-it/codex-pet-bunny",
+    "websiteURL": "https://github.com/leduy-it/hatch-pet-plus",
     "defaultPrompt": [
       "Make me a Codex pet: a pot-bellied terracotta jar-creature, claymation style",
       "Turn this character art into a Codex pet",
