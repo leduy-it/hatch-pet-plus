@@ -1,0 +1,12 @@
+{
+  "id": "grove-evo",
+  "displayName": "Pip",
+  "type": "leaf",
+  "description": "Pip — a sprout that grows, as you do, from a seedling into a mossy grove-creature.",
+  "stages": [
+    { "source": "pip",       "minLevel": 0,  "name": "Pip",
+      "attributes": { "type": "leaf", "hp": 40, "atk": 34, "def": 42, "spd": 40 } },
+    { "source": "mossback",  "minLevel": 12, "name": "Mossback",
+      "attributes": { "type": "leaf", "hp": 68, "atk": 52, "def": 74, "spd": 44 } }
+  ]
+}

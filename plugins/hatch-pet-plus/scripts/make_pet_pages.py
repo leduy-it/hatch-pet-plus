@@ -95,6 +95,7 @@ def page(key: str) -> bool:
     pet_dir = REPO / "pets" / key
     manifest = json.loads((pet_dir / "pet.json").read_text())
     evolving = bool(manifest.get("stages"))
+    composed = bool(manifest.get("composed"))
 
     sheets = ([(pet_dir / s["spritesheetPath"], s.get("name") or key, s["minLevel"])
                for s in manifest["stages"]] if evolving
@@ -111,7 +112,7 @@ def page(key: str) -> bool:
     notes = (req.get("pet_notes") or manifest.get("description") or "").strip()
 
     base_src = RUNS / run_key / "references/canonical-base.png"
-    if base_src.is_file() and not (pet_dir / "base.png").is_file():
+    if not composed and base_src.is_file() and not (pet_dir / "base.png").is_file():
         b = Image.open(base_src).convert("RGBA")
         b.thumbnail((640, 640), Image.LANCZOS)
         b.convert("RGB").save(pet_dir / "base.png", quality=90)
@@ -193,17 +194,25 @@ def page(key: str) -> bool:
     L.append("</p>")
     L.append("")
 
-    L.append("## QA")
-    L.append("")
-    L.append("```")
-    for p, name, _lv in sheets:
-        L.append(qa_line(pet_dir, chroma) if len(sheets) == 1 else f"{name}: {qa_line(pet_dir, chroma)}")
-        break
-    L.append("```")
-    L.append("")
-    L.append("`lean` = pixels still tinted by the chroma key · `ring` = background baked into the "
-             "sprite · `spread` = how much the pet resizes between lanes. All must be near zero.")
-    L.append("")
+    if composed:
+        L.append("## Composed from existing pets")
+        L.append("")
+        L.append("This evolution line reuses atlases that already ship in this repo — **no new art was "
+                 "generated**. Each stage is one of the finished, QA-passed pets:")
+        L.append("")
+        for st in manifest["stages"]:
+            L.append(f"- **{st['name']}** — `{st['spritesheetPath']}`")
+        L.append("")
+    else:
+        L.append("## QA")
+        L.append("")
+        L.append("```")
+        L.append(qa_line(pet_dir, chroma))
+        L.append("```")
+        L.append("")
+        L.append("`lean` = pixels still tinted by the chroma key · `ring` = background baked into the "
+                 "sprite · `spread` = how much the pet resizes between lanes. All must be near zero.")
+        L.append("")
     if (pet_dir / "base.png").is_file():
         L.append("## The base art everything was generated from")
         L.append("")

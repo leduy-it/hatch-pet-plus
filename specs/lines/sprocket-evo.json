@@ -1,0 +1,14 @@
+{
+  "id": "sprocket-evo",
+  "displayName": "Sprocket",
+  "type": "machine",
+  "description": "Sprocket — a desk robot that upgrades its own graphics the more you code. It evolves by re-rendering itself at higher fidelity.",
+  "stages": [
+    { "source": "bot-pixel",        "minLevel": 0,  "name": "Sprocket 8-bit",
+      "attributes": { "type": "machine", "hp": 38, "atk": 42, "def": 34, "spd": 46 } },
+    { "source": "bot-flat-vector",  "minLevel": 8,  "name": "Sprocket Vector",
+      "attributes": { "type": "machine", "hp": 52, "atk": 58, "def": 48, "spd": 60 } },
+    { "source": "bot-3d-toy",       "minLevel": 20, "name": "Sprocket HD",
+      "attributes": { "type": "machine", "hp": 74, "atk": 82, "def": 68, "spd": 78 } }
+  ]
+}

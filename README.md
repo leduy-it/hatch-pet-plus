@@ -157,6 +157,18 @@ neither.
 
 Full format and build guide: **[docs/EVOLUTION.md](docs/EVOLUTION.md)**.
 
+**Or evolve for free.** A stage just needs to be a full atlas, and we ship 14 — so an evolving pet
+can *chain existing pets* as its stages, no generation at all. The shipped **Sprocket** line is the
+same robot re-rendering itself pixel → vector → 3D as you level up:
+
+<p align="center">
+  <img src="examples/showcase-evolution.gif" width="620" alt="Volt, Sprocket and Pip evolving">
+</p>
+
+```bash
+scripts/assemble_evolution_line.py specs/lines/sprocket-evo.json   # 0 images generated
+```
+
 > **Who actually evolves them?** Codex shows a pet's first form and never levels it up. To *see* a pet
 > evolve you need a host that tracks your coding and knows about `stages` — like
 > **[evolvepet](https://github.com/leduy-it/evolvepet)**, a desktop pet that watches your agents work.

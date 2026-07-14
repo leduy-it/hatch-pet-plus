@@ -111,6 +111,39 @@ These are not stylistic preferences. Breaking them produces a broken pet:
 
 ---
 
+## Evolution lines — chaining existing pets, for free
+
+An evolution stage does not have to be **new** art. It just has to be a full atlas — and this
+repo already ships fourteen. So an evolving pet can point its stages at pets we already have,
+and it evolves as you level up **without generating a single image**.
+
+```bash
+scripts/assemble_evolution_line.py line.json
+```
+
+```jsonc
+{
+  "id": "sprocket-evo",
+  "displayName": "Sprocket",
+  "type": "machine",
+  "stages": [
+    { "source": "bot-pixel",       "minLevel": 0,  "name": "Sprocket 8-bit" },
+    { "source": "bot-flat-vector", "minLevel": 8,  "name": "Sprocket Vector" },
+    { "source": "bot-3d-toy",      "minLevel": 20, "name": "Sprocket HD" }
+  ]
+}
+```
+
+`source` names an existing `pets/<source>/` directory; its atlas is copied in as that stage.
+The shipped **Sprocket** line is the same desk robot re-rendering itself at rising fidelity —
+pixel → vector → 3D — as you code. Full per-species art (a genuinely *different* creature at
+stage two, like Volt → Anodane) is the richer path; a line is the cheap one, and often the more
+charming, since the stages are already polished pets.
+
+A line pet is marked `"composed": true` so the flat gallery skips it (its stages would duplicate
+other pets) while the evolution showcase features it. Because its stages carry different original
+chroma keys, QA each stage against its **source** pet's key, not one key for the whole pet.
+
 ## Building one
 
 ```bash

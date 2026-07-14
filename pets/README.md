@@ -7,12 +7,6 @@ and 16 look directions. Each has its own page with lane-by-lane detail.
   <img src="../examples/showcase-lanes.gif" width="960" alt="every pet, every lane">
 </p>
 
-<p align="center">
-  <em>all 14 pets, playing each of the nine lanes in turn</em>
-</p>
-
----
-
 ## The pets
 
 | | pet | style | |
@@ -32,58 +26,34 @@ and 16 look directions. Each has its own page with lane-by-lane detail.
 | <img src="pip/hero.gif" width="64"> | **[Pip](pip/)** | `sticker` |  |
 | <img src="volt/hero.gif" width="64"> | **[Volt](volt/)** | `3d-toy` | **evolves** — Volt → Anodane |
 
+---
+
+## Evolution lines — built from existing pets, zero new art
+
+<p align="center">
+  <img src="../examples/showcase-evolution.gif" width="620" alt="evolving pets">
+</p>
+
+A stage does not have to be *new* art — it just has to be a full atlas, and we already ship
+14 of them. These pets **chain existing atlases as their stages**, so they evolve as you level
+up without a single image being generated. Define your own in one small JSON file:
+`scripts/assemble_evolution_line.py <line.json>`.
+
+| | line | evolves |
+|---|---|---|
+| <img src="grove-evo/hero.gif" width="64"> | **[Pip](grove-evo/)** | Pip (Lv 0) → Mossback (Lv 12) |
+| <img src="sprocket-evo/hero.gif" width="64"> | **[Sprocket](sprocket-evo/)** | Sprocket 8-bit (Lv 0) → Sprocket Vector (Lv 8) → Sprocket HD (Lv 20) |
+
+---
+
+## Install
+
 ```bash
 ./install.sh --pet <name>     # one
 ./install.sh --pet            # all of them
 ```
 
-Then **Codex Settings → Appearance / Pets → pick it**, or set it directly:
-
-```toml
-[desktop]
-selected-avatar-id = "<name>"
-```
-
----
-
-## What each pet ships with
-
-```
-pets/<name>/
-├── README.md          lane-by-lane detail, measured from the atlas
-├── pet.json           installable manifest (spriteVersionNumber: 2)
-├── spritesheet.webp   8x11 atlas, 1536x2288, transparent
-├── base.png           the canonical art all 88 drawings were generated against
-├── hero.gif           a large idle loop
-├── demo.gif           all 9 lanes side by side
-├── contact-sheet.png  all 11 rows, cell by cell
-├── validation.json    the validator's report
-└── previews/*.gif     one animated GIF per lane
-```
-
----
-
-## Evolving pets
-
-Some pets have **two forms**, and ship one complete atlas *per stage*:
-
-<p align="center">
-  <img src="../examples/showcase-evolution.gif" width="420" alt="evolving">
-</p>
-
-```
-pets/<name>/
-├── pet.json              declares `stages` + `attributes`
-├── stage-1.webp          the form it hatches as
-├── stage-2.webp          the form it becomes at Lv 10
-├── evolution.gif         the transformation, animated
-└── previews/stage-1/*.gif  /  previews/stage-2/*.gif
-```
-
-`spritesheetPath` still points at stage one, so **Codex loads an evolving pet and shows its
-first form** — it knows nothing about stages and does not need to. To actually *see* one evolve
-you need a host that tracks your coding and reads `stages`, like
-[evolvepet](https://github.com/leduy-it/evolvepet).
-
-Format and build guide: **[../docs/EVOLUTION.md](../docs/EVOLUTION.md)**.
+An evolving pet installs its first form into Codex (which cannot level pets up) and, if you have
+[evolvepet](https://github.com/leduy-it/evolvepet), every stage into it. Format and build guide:
+**[../docs/EVOLUTION.md](../docs/EVOLUTION.md)**.
 

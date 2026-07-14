@@ -54,7 +54,7 @@ The pet is drawn the **same size in every lane** (spread 1%), so it does not vis
 ## QA
 
 ```
-Volt: volt/Volt PASS key=#FF00FF lean=0.0% ring=8% spread=1%
+volt/Volt PASS key=#FF00FF lean=0.0% ring=8% spread=1%
 ```
 
 `lean` = pixels still tinted by the chroma key · `ring` = background baked into the sprite · `spread` = how much the pet resizes between lanes. All must be near zero.

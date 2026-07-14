@@ -28,6 +28,12 @@ ROW = {l: i for i, l in enumerate(
      "failed", "waiting", "running", "review"])}
 
 
+def _composed(pet: Path) -> bool:
+    import json
+    m = pet / "pet.json"
+    return m.is_file() and bool(json.loads(m.read_text()).get("composed"))
+
+
 def sheet_of(pet: Path) -> Path | None:
     for name in ("spritesheet.webp", "stage-1.webp"):
         if (pet / name).is_file():
@@ -76,7 +82,8 @@ def strip(clips: list[list[Image.Image]], label: str | None = None,
 
 
 def main() -> None:
-    pets = sorted(p for p in (REPO / "pets").iterdir() if p.is_dir() and sheet_of(p))
+    pets = sorted(p for p in (REPO / "pets").iterdir()
+                  if p.is_dir() and sheet_of(p) and not _composed(p))
     sheets = {p.name: sheet_of(p) for p in pets}
     ex = REPO / "examples"
     print(f"{len(pets)} pets: {', '.join(p.name for p in pets)}\n")
