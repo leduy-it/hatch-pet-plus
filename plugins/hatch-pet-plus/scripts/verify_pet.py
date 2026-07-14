@@ -105,7 +105,27 @@ spread = (max(meds) - min(meds)) / max(meds) * 100 if meds else 0
 if spread > 12:
     fails.append(f'pet resizes between animations — {spread:.0f}% lane spread')
 
-# 5. lane population
+# 5. DUPLICATE LANES — two animations must never be the same footage.
+#    Parallel codex processes share ~/.codex/generated_images/, so one can copy ANOTHER's output.
+#    It happened three times and nothing caught it: kiln's `waving` was byte-identical to `review`,
+#    bot-plush's `failed` to `jumping`, mossback's `failed` to `waiting`.
+import hashlib
+lane_hash = {}
+for r in range(9):
+    frames = []
+    for c in range(COUNTS[r]):
+        cell = a[r*CELL_H:(r+1)*CELL_H, c*CELL_W:(c+1)*CELL_W]
+        frames.append(cell.tobytes())
+    lane_hash[LANES[r]] = hashlib.md5(b''.join(frames)).hexdigest()
+by_hash = {}
+for lane, hh in lane_hash.items():
+    by_hash.setdefault(hh, []).append(lane)
+for hh, group in by_hash.items():
+    if len(group) > 1:
+        fails.append(f'lanes {" and ".join(group)} are IDENTICAL — a parallel run copied '
+                     f"another process's image")
+
+# 6. lane population
 for r, (lane, n) in enumerate(zip(LANES, COUNTS)):
     used = sum(1 for c in range(n)
                if (al[r*CELL_H:(r+1)*CELL_H, c*CELL_W:(c+1)*CELL_W] > 0).sum() > 50)
