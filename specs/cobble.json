@@ -1,0 +1,42 @@
+{
+  "id": "cobble",
+  "type": "rock",
+  "style": "3d-toy",
+  "base": "/Users/duyle/Desktop/hatch-pet-plus/examples/elemental/cobble.png",
+  "identity": "Cobble \u2014 a stout grey stone golem of stacked rounded rocks with moss on its crown, heavy blocky arms, glowing amber eyes, and an amber geode set into its chest.",
+  "description": "Cobble \u2014 an evolving rock-type Codex pet. Reaches level 10 to become Cairnvault.",
+  "stages": [
+    {
+      "minLevel": 0,
+      "name": "Cobble",
+      "attributes": {
+        "type": "rock",
+        "hp": 55,
+        "atk": 45,
+        "def": 75,
+        "spd": 30
+      }
+    },
+    {
+      "minLevel": 10,
+      "name": "Cairnvault",
+      "attributes": {
+        "type": "rock",
+        "hp": 74,
+        "atk": 61,
+        "def": 116,
+        "spd": 40
+      },
+      "transformation": "Cobble's chest cavity has grown too bright to leave open, so the creature has sealed it: three thick stone rib-bars have grown across the mouth of the geode like the bars of a vault, with the dark recessed hollow and its old amber crystals still clearly visible glowing in the gaps behind them. To carry the weight it has grown gear and new material \u2014 two huge dark basalt slabs now sit over its shoulders as pauldrons, a far harder, darker, sharper-edged rock than its pale grey cobble, and its right forearm has fused into a single blunt handleless granite quarry-maul while its left hand has hardened into one heavy blunt-clawed stone mitt. The soft moss has thickened into a dark lichen crust, the brow is cracked and heavy over a set grimace, and the passive standing pose drops into a low, wide-braced, maul-cocked stance.",
+      "identityAnchors": [
+        "Stacked rounded cobblestone construction with visible seams between individual stones (never a smooth single-piece body)",
+        "Large round amber/orange glowing eyes with dark pupils under a heavy stone brow",
+        "A recessed cavity set into the centre of the chest that still reads as a HOLE \u2014 dark interior, amber crystals visible deep inside, glowing from within",
+        "Moss/lichen growth on the top of the head and over the shoulders",
+        "Stocky, chibi, short-limbed bipedal build: big head, barrel torso, thick stubby legs, no neck",
+        "Body reads as majority COOL GREY STONE; warm amber light is a small contained accent confined to the chest cavity and the eyes"
+      ],
+      "imagePrompt": "Evolve this cobblestone golem into its stronger adult form: a hunched quarry-warden that has barred its own glowing chest shut and grown stone armour and a fused hammer arm.\n\nKeep it clearly the SAME creature: the same stacked rounded cobblestone body with visible seams between individual stones, the same big round glowing amber eyes with dark pupils, the same recessed geode cavity in the centre of the chest, the same moss on the head and shoulders, the same stocky chibi build with a huge head, barrel torso and short thick legs, no neck.\n\nThere are only THREE big changes. Make each one large, blunt and instantly readable. Do not add anything else.\n\n1. BARRED CHEST. The chest cavity is still a hole \u2014 the same dark recessed hollow with the same amber crystals sitting deep inside it, glowing from within. It has NOT burst open and nothing grows out of it. Instead, THREE thick vertical bars of the creature's own grey stone have grown across the mouth of the cavity like the bars of a vault, rooted into the stone rim at top and bottom. The bars are chunky and blunt, roughly as wide as the gaps between them. The dark glowing interior and the crystals behind the bars stay clearly visible in the two gaps. Nothing projects forward toward the viewer; the whole chest stays flush and recessed.\n\n2. BASALT PAULDRONS. Two huge single slabs of dark charcoal-basalt sit over the shoulders like angular shelves \u2014 one big slab per shoulder, not a stack of small plates. The basalt is obviously darker, harder and sharper-edged than the pale grey cobble underneath, so the body reads as two different materials. No collar, no neck plates, no small overlapping scales anywhere.\n\n3. FUSED MAUL ARM. The right forearm and fist have fused into one solid squared-off granite quarry-maul: a blunt chipped hammer-block joined straight to the arm, no handle, no gap, no seam of separation. The left hand is one heavy blunt-clawed stone mitt \u2014 a single bold mitten shape with two or three fat fused claws, no fine fingers, no glowing stones, no jewellery.\n\nAlso: the moss has aged into a thick dark-green lichen crust in solid clumps on the crown of the head and on the tops of the pauldrons \u2014 no mushrooms, no dangling strands, no vines. The face is harder: heavier cracked brow, brighter eyes, a set determined grimace. The posture drops from passive standing into braced and forward-leaning: weight low, legs planted wide, shoulders hunched up, maul-arm drawn back.\n\nSTRICT LIMITS. The body must still read as majority COOL GREY STONE. Glow appears ONLY in the eyes and inside the chest cavity \u2014 the amber light stays a small contained accent. Absolutely NO glowing cracks, NO magma veins, NO lit-up mortar seams anywhere on the arms, shoulders, torso, legs, hands or feet. No fire, no smoke, no embers, no sparks, no dust. No crystals anywhere except deep inside the chest cavity. Everything is physically connected to the body: no floating rocks, no orbiting debris.\n\nBold chunky shapes only, strong silhouette, no fine detail, no small repeating patterns \u2014 every feature must still read clearly when shrunk to a tiny sprite. Same cute-but-solid 3D-rendered stylised game-creature look and the same lighting as the original."
+    }
+  ]
+}

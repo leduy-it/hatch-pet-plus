@@ -85,11 +85,49 @@ if [ "$DO_PET" = 1 ]; then
   echo "Pets"
   for p in $pets; do
     src="$REPO_DIR/pets/$p"
-    if [ ! -f "$src/spritesheet.webp" ]; then say "no such pet: $p  (try ./install.sh --list)"; continue; fi
+    if [ ! -f "$src/pet.json" ]; then say "no such pet: $p  (try ./install.sh --list)"; continue; fi
+
+    # `|| true` is load-bearing: `ls` exits non-zero whenever one of the two patterns
+    # does not match — which is ALWAYS, since a pet is either legacy or evolving, never
+    # both — and `set -e` would abort the whole installer on the first pet.
+    sheets=$(ls "$src"/spritesheet.webp "$src"/stage-*.webp 2>/dev/null || true)
+    if [ -z "$sheets" ]; then say "$p has no spritesheet — skipped"; continue; fi
+
+    # ---- Codex ----------------------------------------------------------------
+    # Codex has never heard of `stages`, and its manifest parser is closed — so rather
+    # than bet that it ignores an unknown key, hand it exactly the shape it has always
+    # been given: stage one, under the plain `spritesheet.webp` name. Codex could never
+    # show anything else; it does not level pets up.
     petdir="$CODEX_HOME/pets/$p"
     mkdir -p "$petdir"
-    cp "$src/pet.json" "$src/spritesheet.webp" "$petdir/"
-    say "$p -> $petdir"
+    if [ -f "$src/stage-1.webp" ]; then
+      cp "$src/stage-1.webp" "$petdir/spritesheet.webp"
+      python3 - "$src/pet.json" "$petdir/pet.json" <<'PY'
+import json, sys
+pet = json.load(open(sys.argv[1]))
+pet.pop("stages", None)
+pet["spritesheetPath"] = "spritesheet.webp"
+json.dump(pet, open(sys.argv[2], "w"), indent=2, ensure_ascii=False)
+PY
+    else
+      cp "$src/pet.json" "$src/spritesheet.webp" "$petdir/"
+    fi
+
+    # ---- evolvepet ------------------------------------------------------------
+    # A host that DOES understand stages gets the pet whole, so it can actually evolve.
+    # https://github.com/leduy-it/evolvepet
+    if [ -f "$src/stage-2.webp" ] && [ -d "$HOME/.agentpet" ]; then
+      evodir="$HOME/.agentpet/pets/$p"
+      mkdir -p "$evodir"
+      cp "$src/pet.json" "$evodir/"
+      # shellcheck disable=SC2086
+      cp $sheets "$evodir/"
+      say "$p -> $petdir (stage 1)  +  $evodir (evolving)"
+    elif [ -f "$src/stage-2.webp" ]; then
+      say "$p -> $petdir  (stage 1 — Codex cannot evolve a pet; install evolvepet for that)"
+    else
+      say "$p -> $petdir"
+    fi
   done
   say ""
   say "enable one: Codex Settings -> Appearance / Pets   (then /pet)"

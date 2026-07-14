@@ -334,3 +334,85 @@ An earlier `codex exec` we thought we'd stopped kept following `SKILL.md` end-to
 Its output was, embarrassingly, better than ours: correct left/right convention on both look rows.
 
 Still: know what's writing to your output directory. Check file mtimes.
+
+---
+
+# Lessons from adding evolution
+
+## 8. Editing a shell script while it is running corrupts it
+
+zsh reads a script **by byte offset**, not all at once. Rewriting the file under a running
+process makes it seek to a stale offset in the new bytes. Verified directly:
+
+```
+$ zsh victim.sh &        # sleeps, then echoes two lines
+$ ...rewrite victim.sh with longer lines while it sleeps...
+LINE-B original
+LINE-C original
+victim.sh:8: unmatched "        <- garbage at the stale offset
+exit 1
+```
+
+It runs the buffered lines, then dies on whatever byte it lands on. A four-hour art batch was
+mid-flight when this was discovered; the fix was to restore the original bytes underneath the
+running processes and ship the corrected scripts as separate copies.
+
+**Never edit a script that is executing.** Write the fix somewhere else and swap it in afterwards.
+
+## 9. `set -e` plus a glob that matches nothing kills the whole script
+
+```sh
+sheets=$(ls "$src"/spritesheet.webp "$src"/stage-*.webp 2>/dev/null)
+```
+
+A pet is *either* legacy (`spritesheet.webp`) *or* evolving (`stage-*.webp`), never both — so
+one of those patterns always fails to match, `ls` always exits non-zero, and under `set -e` the
+installer aborted on the **first pet**. It printed its "Pets" header and installed **nothing**,
+including the twelve pets that had nothing to do with evolution.
+
+`|| true` on the assignment. The empty-check on the next line was already there and was never
+reached.
+
+## 10. A lane's last cell is a loop-closing duplicate
+
+The idle lane is six frames, but the atlas is eight columns wide, and **cell 6 is byte-identical
+to cell 0** — verified on every shipped pet. Cropping "every non-empty cell" gives seven frames
+with frame 0 held twice: a visible hitch on every loop.
+
+Corollary for QA: the *contamination* checks must still sweep all eight columns. A baked-in
+background sitting in a cell the app never plays is still a defect, and a checker that only looks
+at the frames it expects will never see it.
+
+## 11. A quota gate must reserve, not merely check
+
+Checking "are we under the ceiling?" before starting a job that costs 15% bounds where you
+*begin*, not where you *end*. A pet could start at 74% against a 75% ceiling and finish at 89%.
+Reserve the job's measured cost before admitting it.
+
+And **say what you skipped.** Silent truncation reads as "we built everything".
+
+## 12. The compile-clean default is the bug
+
+Evolution means the sprite must follow the pet's level. But `pack.clip(0)` — no level — compiles
+fine and quietly means *stage one forever*. It had been written in **ten** places: the care tab
+drew a hatchling next to a "Lv 30" badge; the web profile pushed a stage-1 avatar; the project
+rows, the pet slots and the animation binder all did the same.
+
+Renaming it `baseClip(_:)` — deliberately awkward — makes reaching for the first form a decision
+instead of a default. Only the onboarding picker, where you are choosing a pet you do not own
+yet, actually wants it.
+
+## 13. Verify the claim you actually made
+
+The evolution effect was written to fire "exactly once per threshold, forwards, for the pet on
+screen". An adversarial review of that exact sentence found it did none of the three:
+
+- the guard compared stage indices for **inequality**, so selecting a fresh pet played the
+  white-out **backwards** and announced *"Anodane evolved into Volt"*;
+- the view is per **window** but XP is per **pet**, and one pet can occupy several windows — so
+  one evolution posted two or three identical banners;
+- the view is **reused** across pets (the window model swaps `petID` in place), so pet A's level
+  selected pet B's stage.
+
+None of it was visible in a build, a test run, or a screenshot. Write down the precise claim,
+then have something try to refute it.

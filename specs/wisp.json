@@ -1,0 +1,43 @@
+{
+  "id": "wisp",
+  "type": "ghost",
+  "style": "3d-toy",
+  "base": "/Users/duyle/Desktop/hatch-pet-plus/examples/elemental/wisp.png",
+  "identity": "Wisp \u2014 a small brass lantern spirit: a glass lantern body holding a blue flame core, two round eyes on the glass, and a purple cloth hood with pointed cat-like ears drawn over the top.",
+  "description": "Wisp \u2014 an evolving ghost-type Codex pet. Reaches level 10 to become Tollwarden.",
+  "stages": [
+    {
+      "minLevel": 0,
+      "name": "Wisp",
+      "attributes": {
+        "type": "ghost",
+        "hp": 40,
+        "atk": 52,
+        "def": 36,
+        "spd": 72
+      }
+    },
+    {
+      "minLevel": 10,
+      "name": "Tollwarden",
+      "attributes": {
+        "type": "ghost",
+        "hp": 54,
+        "atk": 70,
+        "def": 49,
+        "spd": 112
+      },
+      "transformation": "The timid ember steadies into a full white-hot blue flame that stands tall and clear inside the still-transparent glass, and the lantern is refitted as a harbor storm-signal: a broad, solid brass reflector dish now fans out behind its head like a scalloped collar-fan, throwing its light forward, while the outer rim of the glass belly is set with three bold concentric stepped Fresnel lens rings that focus the glow into a signal beam (the wide center of the glass stays clear, so the flame shape reads as plainly as before). The crown ring is gone entirely \u2014 replaced by a short, squat brass crest stud \u2014 and the hood is now a heavier weighted mantle pushed back off the brow and cinched by a broad brass collar-clasp, so the face plate is more exposed and the two round eyes burn larger and brighter than in stage 1. Each knotted cloth tassel now terminates in a chunky solid brass bell, and it holds itself upright and squared-off: a storm-warden that warns, rather than a spark that drifts.",
+      "identityAnchors": [
+        "Bulbous, clearly transparent glass lantern belly with a single visible flame burning inside it",
+        "Brass lantern housing: riveted upper face-plate, banded base with a pointed finial below",
+        "Two round glowing eyes set into the brass upper face-plate",
+        "Purple cloth hood with two pointed cat-ear peaks and dashed stitched seams",
+        "A pair of hanging knotted cloth tassels flanking the body, acting as its 'hands'",
+        "Floats with no legs; rounded, top-heavy lantern silhouette",
+        "Blue-white flame color, warm brass, purple cloth palette"
+      ],
+      "imagePrompt": "Draw the evolved adult form of this lantern ghost, keeping it unmistakably the same creature: same brass lantern housing with its riveted upper face-plate and banded base with the pointed finial underneath, same bulbous transparent glass belly with a flame inside, same purple cloth hood with two pointed cat-ear peaks and dashed stitching, same pair of knotted cloth tassels hanging at its sides, same two round eyes on the brass face-plate, still floating with no legs.\n\nNow evolve it into a harbor storm-signal warden. The small timid ember has grown into a single tall, confident flame with a white-hot core and a hard electric-blue edge, filling most of the height of the glass but keeping a clear, readable flame silhouette with space around it. The glass stays clean and clearly transparent \u2014 bright, glossy, faintly blue-tinted. Absolutely no soot, no smoke, no streaks, no dirt or grime on the glass.\n\nNew gear, all solid and chunky: a broad brass REFLECTOR DISH is mounted behind its head, a shallow scalloped disc whose thick solid rim fans out to either side and above the hood like a wide collar-fan, catching and throwing the light forward \u2014 this is the biggest change to its outline. The ring that used to sit on top of its head is GONE, replaced by a short squat brass crest stud; there is no hook, no handle, no loop, no arc over the head. The outer rim of the glass belly is set with three bold concentric stepped brass lens rings (like a lighthouse lens), spaced widely around the edge only \u2014 the wide center of the glass is left completely open and unobstructed so the flame reads clearly. No bars, cages or ribs across the front of the glass. Each hanging cloth tassel now ends in one chunky solid brass bell fused to the cloth.\n\nThe hood is now a heavier, weighted purple mantle, pushed BACK off the brow so more of the brass face-plate is visible, and cinched at the neck with a broad brass collar-clasp. The ear-peaks keep exactly the same simple pointed shape and size as before \u2014 do not add curls, curves or thin tips.\n\nThe eyes must be LARGER and brighter than in stage 1: big, round, hard-edged glowing blue-white discs with a bright center, clearly readable. They are NOT crescents, NOT narrowed, NOT slits, and are never covered by the hood.\n\nThe brass is clean and polished \u2014 bright warm gold on the upper housing, a deeper flat bronze tone on the lower band for contrast, with bigger bolder rivets. No patina, no verdigris, no rust, no crevice grime, no speckled or weathered surface texture anywhere.\n\nPosture: upright, squared-off, chest out, alert and defiant.\n\nSame 3D stylized game-creature rendering, soft studio lighting plus the blue glow from within, clean bold readable shapes, flat clean surfaces. Every element must be solidly attached to the body \u2014 no separate floating embers, sparks, motes or drifting smoke, and no thin wispy strands, threads, wires or chains anywhere. Keep every added part thick and chunky so it survives being shrunk down small."
+    }
+  ]
+}

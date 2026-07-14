@@ -32,7 +32,29 @@ None of these are animals-with-a-gimmick clichés, and none were built from refe
 | **Pip** | `sticker` | a die-cut sprout bursting out of its seed |
 | **Inko** | `painterly` | a creature made of living ink, with a calligraphic tail |
 
-### 2. One robot, six styles
+### 2. Six elemental creatures, and what they evolve into
+
+Six **original** creatures, each a first form with a designed second form. They were invented from a
+text concept alone, and each design was reviewed for derivativeness before it was drawn — because
+this art is CC0, it has to be genuinely ours to give away.
+
+| creature | type | evolves into | what changes |
+| --- | --- | --- | --- |
+| **Volt** | electric | **Anodane** | plush fuzz cures to hard enamel; a copper grounding collar and a ceramic earthing spike |
+| **Firetail** | fire | **Emberkiln** | a kiln-fired ceramic carapace — a furnace that holds its heat, not a lizard carrying a candle |
+| **Dewel** | water | **Dewelm** | the droplet shell crystallises |
+| **Sprig** | leaf | **Verdicoil** | the curled frond unfurls |
+| **Cobble** | rock | **Cairnvault** | the geode in its chest cracks open |
+| **Wisp** | ghost | **Tollwarden** | the hood becomes a cloak, the flame burns cold |
+
+The full art direction for each — the transformation, the identity anchors that must survive it, the
+image prompt, and the stats — is in [`specs/`](../specs/), also free to use.
+
+> **On Pokémon.** These are deliberately *not* Pokémon, and we declined to generate any. Pokémon are
+> Nintendo/Game Freak's intellectual property; we could not license someone else's characters CC0, and
+> handing you art you cannot legally use would be worse than useless.
+
+### 3. One robot, six styles
 
 The *same* mascot concept — **Sprocket**, a small desk-companion robot — rendered in six different
 style presets. This is the clearest demonstration that style is a dial you control, independent of

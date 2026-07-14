@@ -11,6 +11,19 @@ Create a Codex-compatible v2 animated pet from a concept, brand cue, company/pro
 
 User-facing inputs are optional. If the user omits a pet name, infer one from the concept, brand, company, or reference filenames; if that is not possible, choose a short friendly name. If the user omits a description, infer one from the concept or references. If the user omits reference images, generate the base pet from text first, then use that base as the canonical reference for every animation row.
 
+## Evolving Pets
+
+A pet may have more than one form, reached by levelling up. See `docs/EVOLUTION.md` for the format.
+
+- An evolving pet declares `stages` in `pet.json`. Each stage is a **complete 8x11 atlas** unlocked at a `minLevel` — never a variant, patch, or palette swap. There is no layer system and no runtime compositing; the only thing a host can do is choose which sheet to read cells from.
+- `spritesheetPath` always points at stage one, so a host that has never heard of `stages` — Codex itself — loads the pet and shows its first form. Backwards compatibility is the point: a pet without `stages` is unaffected in every respect.
+- Build with `scripts/e2e_evolve.sh <spec.json>`: it builds stage one, generates the evolved base art from stage one's base art plus the evolution prompt, builds stage two through the same pipeline, verifies **both** atlases, and merges them.
+- Budget roughly **23 image generations per evolving pet**. Use `scripts/evolve_all.sh <quota-ceiling> <spec>...` to build several — it checks the Codex quota before each pet and stops rather than exhausting the user's weekly allowance, and reports what it skipped.
+
+**An evolution is not the same pet, bigger.** A scaled-up sprite reads as the same creature standing closer. What sells a transformation is a change of **silhouette** and of **character**, chosen for that specific creature: gear it grows, a material it becomes, a light that ignites inside it, a posture it adopts. Size last, if at all. It must still be recognisably the same creature — record the identity anchors that have to survive, and preserve them.
+
+The sprite constraints are not stylistic. Breaking them produces a broken pet: no detached parts (floating sparks, orbs, motes — the chroma-key extractor destroys anything not attached to the body), no wispy strands or smoke (they key out as fringe), nothing finer than ~4px, and the art style never changes between stages — only the creature does.
+
 ## Existing Inputs And Upgrades
 
 Treat character art, generated images, standard or v2 atlases, contact sheets, and built-in pet art as first-class grounding inputs.

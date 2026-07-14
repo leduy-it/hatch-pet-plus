@@ -1,0 +1,34 @@
+{
+  "id": "volt",
+  "displayName": "Volt",
+  "description": "Volt — an evolving electric-type Codex pet. Reaches level 10 to become Anodane.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "stage-1.webp",
+  "stages": [
+    {
+      "minLevel": 0,
+      "name": "Volt",
+      "spritesheetPath": "stage-1.webp",
+      "attributes": {
+        "type": "electric",
+        "hp": 50,
+        "atk": 58,
+        "def": 46,
+        "spd": 48
+      }
+    },
+    {
+      "minLevel": 10,
+      "name": "Anodane",
+      "spritesheetPath": "stage-2.webp",
+      "attributes": {
+        "type": "electric",
+        "hp": 68,
+        "atk": 90,
+        "def": 62,
+        "spd": 65
+      }
+    }
+  ],
+  "type": "electric"
+}

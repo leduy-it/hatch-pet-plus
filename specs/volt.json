@@ -1,0 +1,43 @@
+{
+  "id": "volt",
+  "type": "electric",
+  "style": "3d-toy",
+  "base": "/Users/duyle/Desktop/hatch-pet-plus/examples/elemental/volt.png",
+  "identity": "Volt \u2014 a plump butter-yellow electric creature: pear-shaped body widest at the hips, bold dark charcoal stripe bands, two long blunt upright ears, large glossy black eyes with a bright highlight, stubby arms and short feet.",
+  "description": "Volt \u2014 an evolving electric-type Codex pet. Reaches level 10 to become Anodane.",
+  "stages": [
+    {
+      "minLevel": 0,
+      "name": "Volt",
+      "attributes": {
+        "type": "electric",
+        "hp": 50,
+        "atk": 58,
+        "def": 46,
+        "spd": 48
+      }
+    },
+    {
+      "minLevel": 10,
+      "name": "Anodane",
+      "attributes": {
+        "type": "electric",
+        "hp": 68,
+        "atk": 90,
+        "def": 62,
+        "spd": 65
+      },
+      "transformation": "Volt's plush fuzz cures into hard matte enamel, and it grows industrial grounding hardware instead of bulking up: a single thick copper induction collar sits on its shoulders like a torc, a small rounded ceramic-white bib plate with one solid blue core disc is set into the centre of its chest, and the two copper cheek buttons are gone \u2014 replaced by one broad brass jaw-plate spanning the lower face. Its tail no longer ends in a bolt at all: it is short, thick, and tipped with a downward stacked ceramic-and-steel grounding spike that reaches toward the floor, while the feet flatten into wide steel-grey earthing pads. The charcoal stripes are untouched but thicker and bolder, and the stance stays low and planted rather than reared-up \u2014 this is a creature that sinks current into the ground, not one that throws it.",
+      "identityAnchors": [
+        "Teardrop / pear-shaped body silhouette, widest at the hips, narrowing to a rounded head with no separate neck",
+        "Butter-yellow body colour as the dominant front-facing colour",
+        "Bold solid dark charcoal stripe bands (chevrons on the crown/back, sweeping diagonal bars on the flanks)",
+        "Two long, thick, blunt-tipped upright ears rising from the top of the head",
+        "Large glossy black eyes with a single big highlight",
+        "Small stubby arms and two short feet",
+        "A short stubby tail"
+      ],
+      "imagePrompt": "Draw the EVOLVED adult form of this same yellow creature. It is unmistakably the same species \u2014 keep the pear/teardrop body widest at the hips, the butter-yellow colour as the dominant colour of the front-facing body, the bold solid dark charcoal stripe bands (chevrons on the crown and back, sweeping diagonal bars on the flanks), the two long upright ears, the big glossy black eyes with a bright highlight, the stubby arms and short feet. Do not simply make it larger, and do not make it dramatic or heroic. Change it like this: its soft plush fuzz has cured into a hard matte enamel shell, still butter-yellow, with a subtle porcelain sheen. One single thick copper ring sits on its shoulders like a heavy torc collar \u2014 a smooth continuous band of copper, uniform all the way around, no wires, no wrapping, no straps, no diagonal runs across the body. Set into the centre of its chest is one small rounded ceramic-white bib plate, roughly one third the width of the chest so most of the front stays butter-yellow, and in the middle of that plate sits one solid electric-blue disc, a single big clean circle. The two round copper cheek buttons are GONE, replaced by one broad flat brass jaw-plate: a single wide solid brass bar covering the chin and lower jaw, one shape, no bolts, no rings, no facets. The ears stay thick, broad and blunt-tipped \u2014 do not thin them, do not make them antennae, do not put caps or blobs on the tips; they are simply larger and stiffer, each with one solid charcoal band near its base. The tail has NO lightning bolt of any kind: it is short, thick and hangs low, ending in a chunky downward-pointing grounding spike made of two fat stacked white ceramic insulator discs and a blunt steel point that reaches down toward the floor. The feet are broad flat steel-grey earthing pads. The charcoal stripes stay exactly as they are, solid and unbroken \u2014 thicker and bolder, but no cracks, no glowing lines, no seams, no split centres. The mouth is a simple calm closed line. Posture stays low, heavy and planted, four-square and grounded, not reared up or raised. Every added part must be one chunky solid shape with no internal detail: no studs, no rivets, no hex heads, no gaskets, no small repeated parts, no thin lines. No floating sparks, no loose particles, no arcs or orbs in the air, no wispy strands or hairs. All shapes bold and readable at very small size; same clean 3D toy-figure rendering style, soft even studio lighting, full body, facing the viewer, centred, standing."
+    }
+  ]
+}

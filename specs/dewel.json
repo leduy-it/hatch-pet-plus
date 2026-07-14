@@ -1,0 +1,43 @@
+{
+  "id": "dewel",
+  "type": "water",
+  "style": "3d-toy",
+  "base": "/Users/duyle/Desktop/hatch-pet-plus/examples/elemental/dewel.png",
+  "identity": "Dewel \u2014 a pale mint-blue amphibian with a translucent water-droplet shell over its head like a cap, wide friendly eyes, small fin-like side frills, and a smooth rounded body.",
+  "description": "Dewel \u2014 an evolving water-type Codex pet. Reaches level 10 to become Dewelm.",
+  "stages": [
+    {
+      "minLevel": 0,
+      "name": "Dewel",
+      "attributes": {
+        "type": "water",
+        "hp": 60,
+        "atk": 42,
+        "def": 62,
+        "spd": 36
+      }
+    },
+    {
+      "minLevel": 10,
+      "name": "Dewelm",
+      "attributes": {
+        "type": "water",
+        "hp": 81,
+        "atk": 57,
+        "def": 96,
+        "spd": 49
+      },
+      "transformation": "The soft rubbery water-droplet on its head crystallises into a solid, opaque nacre war-helm: the smooth teardrop curve is broken for good \u2014 its tip draws out and curls over into a thick hooked spire, and its base flares into a hard flanged eave that juts out over the brow like a jutting helmet brim. Material, not size, does the work: the whole body goes from soft porcelain-gum to dense polished shell \u2014 the cheek and flank bubble-dots harden into raised pearl studs, and the palette deepens from pale teal to a saturated deep-ocean blue over the same untouched mint-white belly. The wide fan ear-fins keep their full lateral span but stiffen into flat, blunt-edged shell paddles, and the posture squares up: shoulders set, both fists low and forward, brow pressed down, mouth a flat determined line \u2014 while the big round eyes stay exactly as they were.",
+      "identityAnchors": [
+        "Wide round dark glossy eyes with the same big round highlight \u2014 geometry, size and highlight completely unchanged from stage 1; the single strongest recognition cue",
+        "A pointed droplet-derived shell crowning the skull, still reading as the same headpiece even though it has hardened and hooked over",
+        "The pair of wide fan/paddle ear-fins sweeping far out horizontally past both sides of the head, keeping their full lateral span",
+        "Pale mint-white belly and cream underside against a blue upper body",
+        "Bubble-dot speckle clusters on the cheeks, flanks and shoulders",
+        "Stubby four-clawed hands and the flat paddle tail",
+        "Short chubby pear-shaped proportions with a big round friendly face, no neck; opaque glossy porcelain-shell shading"
+      ],
+      "imagePrompt": "Evolve the attached creature into its stronger adult form. It must stay unmistakably the same species: same short chubby pear-shaped body with no neck, same big round friendly face, same wide round dark glossy eyes with the big round white highlight, same pale mint-white belly and cream underside, same bubble-dot speckle clusters, same stubby four-clawed hands, same flat paddle tail, same pair of wide fan ear-fins sweeping far out to the sides. Do not simply make it bigger \u2014 change what it is made of and change the shape of its crown.\n\nHead: the soft rubbery water-droplet has hardened into a solid carved battle-helm of thick opaque pearl-shell. Its outline is decisively different from the smooth teardrop: the pointed tip now draws out and curls over forward into a single thick blunt hooked spire, and the base of the helm flares outward into one hard flanged brim \u2014 a chunky projecting eave that overhangs the brow with a clean, heavy, slightly upturned lip. Two chunky forms only: the hooked spire and the flanged brim. The helm is fully solid and opaque, matte-to-glossy shell, deep blue-grey with a cream underside \u2014 it is not see-through, not glassy, not glowing, and there is nothing inside it.\n\nMaterial and colour: the whole creature is now dense polished shell rather than soft gum. The bubble-dot speckles are raised solid pearl studs. The upper body deepens to a rich saturated deep-ocean blue, while the belly and underside stay the same pale mint-white and cream. The ear-fins keep their full wide lateral span, unchanged in reach and unchanged in placement, but are now stiff flat shell paddles with thick blunt hard edges \u2014 hardened, never folded back, never pulled in toward the head. The tail paddle is broader and thicker with a hard blunt edge.\n\nAttitude, carried by brow, mouth and stance only: it stands squarely and symmetrically, feet planted under the hips in a compact stance, shoulders set level, both fists low and pushed slightly forward in front of the body, brow pressed down and heavy, mouth a flat determined closed line. The eyes themselves are NOT changed \u2014 keep them exactly as wide, round, dark and glossy as before, with the same big round highlight; do not narrow, squint, sharpen or shrink them.\n\nRendering: everything fully opaque with hard, crisp, unbroken edges. No transparency, no translucency, no glass, no glow, no emitted light, no rim-light haze, no light spill onto the body, no sparks, no floating orbs, no detached bubbles or droplets, no wisps or trailing strands, no fine ribbing, no repeating micro-stripes, no small scattered surface texture. Keep every shape chunky, symmetric and readable at small size. Single creature, standing upright, facing the viewer, full body visible, compact within a clean unbroken silhouette."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "sprig",
+  "type": "leaf",
+  "style": "3d-toy",
+  "base": "/Users/duyle/Desktop/hatch-pet-plus/examples/elemental/sprig.png",
+  "identity": "Sprig \u2014 a mossy green seedling creature with a curled fiddlehead frond rising from its crown, overlapping leaf collar around its body, round cheeks, and small stubby feet.",
+  "description": "Sprig \u2014 an evolving leaf-type Codex pet. Reaches level 10 to become Verdicoil.",
+  "stages": [
+    {
+      "minLevel": 0,
+      "name": "Sprig",
+      "attributes": {
+        "type": "leaf",
+        "hp": 65,
+        "atk": 45,
+        "def": 62,
+        "spd": 30
+      }
+    },
+    {
+      "minLevel": 10,
+      "name": "Verdicoil",
+      "attributes": {
+        "type": "leaf",
+        "hp": 101,
+        "atk": 61,
+        "def": 84,
+        "spd": 40
+      },
+      "transformation": "Sprig's single fern spiral does not uncoil \u2014 it multiplies, into a symmetric crown of three thick coiled croziers (one tall central, two shorter side coils), so the spiral silhouette that made it readable at thumbnail size gets bolder instead of being spent. Its material changes rather than its size: the lower half of the body stops being fuzzy moss and becomes smooth, pale cream heartwood, a hard clean two-tone split with the deep-green mossy upper body, as though it is slowly turning into the tree it came from. The leaf collar keeps the chest entirely to itself and thickens into two broad waxy leaf pauldrons that jut out past the shoulder line, while the thin tail thickens into a stout woody club tipped with the old nut, now grown into a big round mossy gourd fused to the tail end.",
+      "identityAnchors": [
+        "the coiled fern spiral growing from the top of the head \u2014 still coiled, still a spiral, now three of them from the same spot",
+        "the collar/skirt of broad overlapping leaves blanketing the chest and shoulders",
+        "rounded pear-shaped chubby body with fuzzy moss-green fur on the head and upper body",
+        "large round dark-brown eyes with a single bright highlight, and pink blush cheeks",
+        "the brown nut/seed motif at the tail tip (now grown into a large gourd)",
+        "short stubby fingerless nub arms and small rounded stubby feet",
+        "soft chunky low-detail silhouette with no thin strands, no held objects, no floating parts"
+      ],
+      "imagePrompt": "Evolve this creature into its larger, sturdier adult form: a stout woodland elder that is slowly turning into a tree. Keep the same species \u2014 same chubby rounded pear-shaped body, same fuzzy moss-green fur on the head and upper body, same large round dark-brown eyes with a single bright highlight, same pink blush cheeks, same short stubby fingerless nub arms and small rounded stubby feet, and the same collar of broad overlapping leaves across its chest and shoulders.\n\nChanges to make, all clearly visible:\n1. HEAD \u2014 TRIPLE COIL: the single curled fern shoot on top of the head becomes THREE curled fern shoots growing from the same spot, arranged symmetrically: one tall central coil in the middle (same tight spiral as before, but thicker and stouter) and one shorter coil on each side, curling outward left and right in mirror image. All three stay tightly coiled spirals. Each shoot is thick and stout \u2014 as thick as the creature's own arm \u2014 smooth and rounded, with no fine hairs, no thin whiskers and no fringe along their edges.\n2. MATERIAL CHANGE \u2014 WOODEN LOWER BODY: the bottom half of the body is no longer fuzzy. From the belly down, including the legs and feet, the creature is smooth, matte, pale cream-tan heartwood \u2014 clean bare wood with only a few soft rounded contour lines, no cracks, no splits, no plates, no armour, no straps, no glowing anything. The change from fuzzy dark-green moss (upper body) to smooth pale wood (lower body) is a single clear, high-contrast boundary that reads instantly at small size. It is a two-tone body, not a suit of armour.\n3. CHEST \u2014 LEAF PAULDRONS: the leaf collar belongs to the chest and shoulders alone, and nothing covers it. It grows into fewer, larger, thicker, waxier leaves; the two topmost leaves spread outward over each shoulder into broad rounded leaf pauldrons that clearly stick out past the body's outline on both sides. The leaf collar lies ON TOP of the body and its bottom leaf tips overlap the top edge of the pale wooden lower half.\n4. TAIL: the thin tail is now a short, thick, stout club of the same pale wood, held low and hanging down and out to one side, ending in one big round moss-green gourd (the old brown nut, grown large and heavy) fused solidly onto the tail tip. The gourd is a single smooth rounded mass, roughly the size of the creature's head. It stays low, near the ground, and never rises above the shoulders.\n5. ATTITUDE: it stands planted and steady \u2014 feet apart, chest out, shoulders squared, brow gently lowered into a calm, patient, kindly stare with a small closed smile. Still cute, but settled and old.\n6. PALETTE: deep forest-green fuzzy moss on top, waxy dark-green leaves, smooth pale cream-tan wood below.\n\nBoth nub arms hang free at its sides. It holds nothing. There is no staff, no stick, no tool, no weapon, no shield and no object of any kind in or near its hands, and no bark plating, spikes or armour on its chest, shoulders or arms.\n\nStyle: same soft, plush, chunky 3D-render look as the original, one continuous connected figure, full body standing, facing forward. Every element must be attached to the body \u2014 nothing floating separately, no drifting sparks, leaves, dust or particles anywhere. Nothing glows, and there are no light effects of any kind. Keep the silhouette bold, chunky and left-right symmetric apart from the tail: no thin wispy strands, no fine hairs, no lace-like detail, no small gaps or slivers of background between parts."
+    }
+  ]
+}

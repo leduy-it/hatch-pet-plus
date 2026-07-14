@@ -1,0 +1,44 @@
+{
+  "id": "firetail",
+  "type": "fire",
+  "style": "3d-toy",
+  "base": "/Users/duyle/Desktop/hatch-pet-plus/examples/elemental/firetail.png",
+  "identity": "Firetail \u2014 a chubby charcoal-purple scaled salamander on four planted legs, warm orange underbelly, orange-capped toes, big amber eyes, and a single flat opaque flame at the tip of a tail that arcs up over its back.",
+  "description": "Firetail \u2014 an evolving fire-type Codex pet. Reaches level 10 to become Emberkiln.",
+  "stages": [
+    {
+      "minLevel": 0,
+      "name": "Firetail",
+      "attributes": {
+        "type": "fire",
+        "hp": 55,
+        "atk": 62,
+        "def": 45,
+        "spd": 38
+      }
+    },
+    {
+      "minLevel": 10,
+      "name": "Emberkiln",
+      "attributes": {
+        "type": "fire",
+        "hp": 74,
+        "atk": 96,
+        "def": 61,
+        "spd": 51
+      },
+      "transformation": "Firetail keeps its flame \u2014 that is the whole point of the name \u2014 but it stops being the only fire it can carry. A hard, kiln-fired ceramic carapace grows over its back and shoulders: matte bone-white plate with a burnt-clay rim, pierced by three big round vent ports, so the creature now looks like a walking furnace that has learned to hold its own heat instead of a lizard with a candle. The tail flame itself changes shape rather than size \u2014 the soft single teardrop splits into a forked, hook-tipped double-lobed flame with a flat pale-yellow inner core, a hotter and sharper read against the same smooth hard edge. It stays a low, chubby, four-legged salamander with all four feet planted, just wider and braced; the only new attitude is a heavy orange brow ridge over the same big amber eyes.",
+      "identityAnchors": [
+        "Chubby four-limbed salamander body plan, low quadruped stance with all four feet planted \u2014 never bipedal, never reared",
+        "Deep charcoal-purple scaled hide as the dominant body colour",
+        "Large amber-orange eyes with dark round pupils and a single bright specular highlight \u2014 same size and shape as stage-1, never narrowed to slits",
+        "Warm orange underbelly running from chin down the chest",
+        "Orange-capped toes on every foot",
+        "One flame element at the very tip of the tail, and nowhere else \u2014 flat, hard-edged, opaque, clearly reading as fire",
+        "Tail arcing up and over the back so the flame sits clear of the body against open background",
+        "Same short blunt snout with a wide friendly jawline and small round nostrils"
+      ],
+      "imagePrompt": "Evolve this creature into its adult stage. It is the same chubby charcoal-purple scaled salamander \u2014 same broad rounded head, same blunt snout and wide jawline, same big amber eyes, same orange underbelly, same orange-capped toes. It stays a LOW QUADRUPED with all four feet planted flat on the ground: it does not rear up, it does not stand on two legs, its forelimbs stay clearly limbs and never become arms. It is a little broader and heavier through the chest and shoulders, front legs braced slightly wider apart, head held level. Do not make it a dragon, do not slim it down, do not change the species.\n\nTAIL AND FLAME (the most important element, must dominate the silhouette): the tail still arcs up and over the back, and the flame at the tail tip REMAINS and is still the loudest shape in the picture \u2014 a big, bright, opaque flame held clear of the body against open background. Its shape has changed: where it was one soft teardrop, it is now a forked double-lobed flame \u2014 two clean lobes rising from the tail tip, the taller one hooking slightly backward like a curled tongue of fire. Inside it sits one flat pale-yellow inner core shaped like a smaller version of the same flame. The flame is rendered exactly like the original: flat, hard-edged, solid opaque colour, smooth clean outline, matte, NOT translucent, NOT glowing, NO bloom, NO halo, NO wisps, NO sparks, NO embers, NO smoke, NO fine tendrils. Just two flat colour shapes with a crisp edge \u2014 bright orange with a pale-yellow core.\n\nNEW GEAR \u2014 CERAMIC KILN CARAPACE: a hard, kiln-fired ceramic shell has grown over its back and shoulders, like glazed pottery that hardened around the animal. It is matte BONE-WHITE / pale cream, with a thick burnt-terracotta rim along its lower edge, so it reads as a large pale mass sitting on the dark body \u2014 high contrast by VALUE, not by glow. The shell is one big smooth simple shape with a chunky rounded outline, covering the back and capping each shoulder as a single broad plate. Pierced through the top of the shell are exactly THREE large round vent ports in a row, each about the size of one of its eyes, rendered as flat dark circles. The ceramic is completely non-emissive: no cracks, no lava seams, no glowing lines, no molten gaps, no light coming from inside the shell or from the vent ports. It is cool, dry, matte clay.\n\nThe old row of small orange dorsal nubs is now reduced to a few nubs on the neck in front of the shell \u2014 do not build a spiny ridge, do not put anything tall on the back that could crowd the tail flame. The back of the shell is smooth and low so the flame has clear space above it.\n\nFACE: the eyes stay exactly as large, round and amber as before, with the same dark round pupil and one white specular dot \u2014 do NOT narrow them, do NOT add a white or glowing core inside them. The only change to the face is a heavy raised orange brow ridge above each eye, giving it a steady, confident, grown-up expression instead of a soft baby stare. Mouth stays a wide calm line.\n\nSTYLE: same glossy stylised 3D cartoon creature rendering as the original, clean bold silhouette, chunky readable shapes, big flat colour areas. Every part of the creature is one connected solid body. Nothing in this design is emissive except the tail flame, and the tail flame itself is flat and hard-edged with no halo. No intricate patterns, no thin lines, no hairline detail anywhere."
+    }
+  ]
+}
