@@ -1,0 +1,15 @@
+{
+  "id": "dewel",
+  "displayName": "Dewel",
+  "description": "Dewel — a Codex pet.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp",
+  "type": "water",
+  "attributes": {
+    "type": "water",
+    "hp": 60,
+    "atk": 42,
+    "def": 62,
+    "spd": 36
+  }
+}

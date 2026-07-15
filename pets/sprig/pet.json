@@ -1,0 +1,15 @@
+{
+  "id": "sprig",
+  "displayName": "Sprig",
+  "description": "Sprig — a Codex pet.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp",
+  "type": "leaf",
+  "attributes": {
+    "type": "leaf",
+    "hp": 65,
+    "atk": 45,
+    "def": 62,
+    "spd": 30
+  }
+}

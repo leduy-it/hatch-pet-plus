@@ -1,0 +1,15 @@
+{
+  "id": "wisp",
+  "displayName": "Wisp",
+  "description": "Wisp — a Codex pet.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp",
+  "type": "ghost",
+  "attributes": {
+    "type": "ghost",
+    "hp": 40,
+    "atk": 52,
+    "def": 36,
+    "spd": 72
+  }
+}

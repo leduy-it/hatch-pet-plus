@@ -1,0 +1,15 @@
+{
+  "id": "firetail",
+  "displayName": "Firetail",
+  "description": "Firetail — a Codex pet.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp",
+  "type": "fire",
+  "attributes": {
+    "type": "fire",
+    "hp": 55,
+    "atk": 62,
+    "def": 45,
+    "spd": 38
+  }
+}

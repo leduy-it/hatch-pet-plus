@@ -1,15 +1,15 @@
 # 🐣 hatch-pet-plus — make any Codex pet, in any style
 
 A plugin for **Codex** and **Claude Code** that turns a concept — or a piece of character art — into a
-fully animated Codex pet. Plus **[14 ready-to-install pets](pets/)** — one of which **evolves** — and
+fully animated Codex pet. Plus **[19 ready-to-install pets](pets/)** — one of which **evolves** — and
 free CC0 mascot art.
 
 <p align="center">
-  <img src="examples/showcase-lanes.gif" width="960" alt="All 14 pets, playing every animation lane">
+  <img src="examples/showcase-lanes.gif" width="960" alt="All 19 pets, playing every animation lane">
 </p>
 
 <p align="center">
-  <em>14 complete pets, playing each of the nine lanes in turn — every one a full 8×11 atlas:
+  <em>19 complete pets, playing each of the nine lanes in turn — every one a full 8×11 atlas:
   9 animation lanes + 16 look directions, all validated</em>
 </p>
 
@@ -130,22 +130,26 @@ specific creature:
 
 | | first form | evolves into | what actually changes | |
 |---|---|---|---|---|
-| ⚡ | **Volt** | **Anodane** | its plush fuzz cures to hard enamel; it grows a copper grounding collar and a ceramic earthing spike where its tail tip was | **[built](pets/volt/)** |
-| 🔥 | **Firetail** | **Emberkiln** | a kiln-fired ceramic carapace grows over its back — a furnace that *holds* its heat, not a lizard carrying a candle | [spec](specs/firetail.json) |
-| 🪨 | **Cobble** | **Cairnvault** | the geode in its chest cracks open | [spec](specs/cobble.json) |
-| 🌱 | **Sprig** | **Verdicoil** | the curled frond unfurls | [spec](specs/sprig.json) |
-| 💧 | **Dewel** | **Dewelm** | the droplet shell crystallises | [spec](specs/dewel.json) |
-| 👻 | **Wisp** | **Tollwarden** | the hood becomes a cloak and the flame burns cold | [spec](specs/wisp.json) |
+| | first form | evolves into | what actually changes | first form | evolution |
+|---|---|---|---|---|---|
+| ⚡ | **Volt** | **Anodane** | its plush fuzz cures to hard enamel; it grows a copper grounding collar and a ceramic earthing spike where its tail tip was | [pet](pets/volt/) | **[built](pets/volt/)** |
+| 🔥 | **Firetail** | **Emberkiln** | a kiln-fired ceramic carapace grows over its back — a furnace that *holds* its heat, not a lizard carrying a candle | [pet](pets/firetail/) | [spec](specs/firetail.json) |
+| 🪨 | **Cobble** | **Cairnvault** | the geode in its chest cracks open | [pet](pets/cobble/) | [spec](specs/cobble.json) |
+| 🌱 | **Sprig** | **Verdicoil** | the curled frond unfurls | [pet](pets/sprig/) | [spec](specs/sprig.json) |
+| 💧 | **Dewel** | **Dewelm** | the droplet shell crystallises | [pet](pets/dewel/) | [spec](specs/dewel.json) |
+| 👻 | **Wisp** | **Tollwarden** | the hood becomes a cloak and the flame burns cold | [pet](pets/wisp/) | [spec](specs/wisp.json) |
 
 Gear. Materials. An ignition. A posture. *Then* size, if it helps at all.
 
-**Volt is built.** The other five have complete art direction in [`specs/`](specs/) — the transformation,
-the identity anchors that must survive it, the image prompt, and the stats — and their first-form art is
-in [`assets/elemental/`](assets/elemental/), CC0. Building one is a single command; it is not free, which
-is the honest reason they are not all built yet:
+**All six first forms now ship as complete, animated pets** — every lane, every look direction, in
+[`pets/`](pets/) (see the [gallery below](#and-they-come-alive-as-full-pets)). **Volt is the one built all
+the way through its evolution** into Anodane. The other five have their *evolved* second forms fully
+art-directed in [`specs/`](specs/) — transformation, identity anchors, image prompt and stats — ready to
+build. Building a second form is a single command; it is not free, which is the honest reason the
+evolutions are not all built yet:
 
 ```bash
-scripts/e2e_evolve.sh specs/firetail.json     # ~23 image generations — roughly 15% of a weekly Codex quota
+scripts/e2e_evolve.sh specs/firetail.json     # ~11 image generations for the second form (~9% of a weekly Codex quota)
 
 # or build several, stopping before it eats your allowance:
 scripts/evolve_all.sh 75 specs/*.json         # checks quota before each pet, and says what it skipped
@@ -157,7 +161,7 @@ neither.
 
 Full format and build guide: **[docs/EVOLUTION.md](docs/EVOLUTION.md)**.
 
-**Or evolve for free.** A stage just needs to be a full atlas, and we ship 14 — so an evolving pet
+**Or evolve for free.** A stage just needs to be a full atlas, and we ship 19 — so an evolving pet
 can *chain existing pets* as its stages, no generation at all. The shipped **Sprocket** line is the
 same robot re-rendering itself pixel → vector → 3D as you level up:
 
@@ -211,8 +215,8 @@ cd hatch-pet-plus
 ./install.sh                 # plugin, both hosts
 ./install.sh --codex         # Codex only
 ./install.sh --claude        # Claude Code only
-./install.sh --list          # list the 14 pets
-./install.sh --pet           # install ALL 14 pets
+./install.sh --list          # list the 19 pets
+./install.sh --pet           # install ALL 19 pets
 ./install.sh --pet mossback  # install one
 ```
 
@@ -225,7 +229,7 @@ single `skills/` folder, so it installs into either host.
 ### The pets
 
 ```bash
-./install.sh --pet mossback     # or any of the 14
+./install.sh --pet mossback     # or any of the 19
 ./install.sh --pet              # all of them
 ```
 
@@ -255,6 +259,70 @@ despilled transparent `cutout.png` (ready to drop into a game, slide or app). Th
 for every evolution — transformation, identity anchors, image prompt, stats — is in [`specs/`](specs/).
 
 See [assets/README.md](assets/README.md).
+
+### …and they come alive as full pets
+
+These are not just base art. Each one is built up into a complete pet — **nine animation lanes** (idle,
+run, wave, hop, work, review, wait, fail) plus sixteen look directions — from the base above, through the
+same hardened pipeline. Here is every action, for each pet that is built:
+
+<!-- ELEMENTAL-GALLERY:START -->
+
+### Volt &nbsp;·&nbsp; `electric`  ·  HP 50 · ATK 58 · DEF 46 · SPD 48  ·  evolves → **Anodane** (Lv 10)
+
+| Idle | Run → | ← Run | Wave | Hop | Work | Review | Wait | Fail |
+|---|---|---|---|---|---|---|---|---|
+| <img src="pets/volt/previews/stage-1/idle.gif" width="92"> | <img src="pets/volt/previews/stage-1/running-right.gif" width="92"> | <img src="pets/volt/previews/stage-1/running-left.gif" width="92"> | <img src="pets/volt/previews/stage-1/waving.gif" width="92"> | <img src="pets/volt/previews/stage-1/jumping.gif" width="92"> | <img src="pets/volt/previews/stage-1/running.gif" width="92"> | <img src="pets/volt/previews/stage-1/review.gif" width="92"> | <img src="pets/volt/previews/stage-1/waiting.gif" width="92"> | <img src="pets/volt/previews/stage-1/failed.gif" width="92"> |
+| <sub>resting</sub> | <sub>dragged right</sub> | <sub>dragged left</sub> | <sub>greeting</sub> | <sub>on hover</sub> | <sub>thinking</sub> | <sub>inspecting</sub> | <sub>needs you</sub> | <sub>cancelled</sub> |
+
+<sub>9 animation lanes + 16 look directions · full 8×11 atlas · [pet page](pets/volt/README.md)</sub>
+
+### Firetail &nbsp;·&nbsp; `fire`  ·  HP 55 · ATK 62 · DEF 45 · SPD 38
+
+| Idle | Run → | ← Run | Wave | Hop | Work | Review | Wait | Fail |
+|---|---|---|---|---|---|---|---|---|
+| <img src="pets/firetail/previews/idle.gif" width="92"> | <img src="pets/firetail/previews/running-right.gif" width="92"> | <img src="pets/firetail/previews/running-left.gif" width="92"> | <img src="pets/firetail/previews/waving.gif" width="92"> | <img src="pets/firetail/previews/jumping.gif" width="92"> | <img src="pets/firetail/previews/running.gif" width="92"> | <img src="pets/firetail/previews/review.gif" width="92"> | <img src="pets/firetail/previews/waiting.gif" width="92"> | <img src="pets/firetail/previews/failed.gif" width="92"> |
+| <sub>resting</sub> | <sub>dragged right</sub> | <sub>dragged left</sub> | <sub>greeting</sub> | <sub>on hover</sub> | <sub>thinking</sub> | <sub>inspecting</sub> | <sub>needs you</sub> | <sub>cancelled</sub> |
+
+<sub>9 animation lanes + 16 look directions · full 8×11 atlas · [pet page](pets/firetail/README.md)</sub>
+
+### Dewel &nbsp;·&nbsp; `water`  ·  HP 60 · ATK 42 · DEF 62 · SPD 36
+
+| Idle | Run → | ← Run | Wave | Hop | Work | Review | Wait | Fail |
+|---|---|---|---|---|---|---|---|---|
+| <img src="pets/dewel/previews/idle.gif" width="92"> | <img src="pets/dewel/previews/running-right.gif" width="92"> | <img src="pets/dewel/previews/running-left.gif" width="92"> | <img src="pets/dewel/previews/waving.gif" width="92"> | <img src="pets/dewel/previews/jumping.gif" width="92"> | <img src="pets/dewel/previews/running.gif" width="92"> | <img src="pets/dewel/previews/review.gif" width="92"> | <img src="pets/dewel/previews/waiting.gif" width="92"> | <img src="pets/dewel/previews/failed.gif" width="92"> |
+| <sub>resting</sub> | <sub>dragged right</sub> | <sub>dragged left</sub> | <sub>greeting</sub> | <sub>on hover</sub> | <sub>thinking</sub> | <sub>inspecting</sub> | <sub>needs you</sub> | <sub>cancelled</sub> |
+
+<sub>9 animation lanes + 16 look directions · full 8×11 atlas · [pet page](pets/dewel/README.md)</sub>
+
+### Sprig &nbsp;·&nbsp; `leaf`  ·  HP 65 · ATK 45 · DEF 62 · SPD 30
+
+| Idle | Run → | ← Run | Wave | Hop | Work | Review | Wait | Fail |
+|---|---|---|---|---|---|---|---|---|
+| <img src="pets/sprig/previews/idle.gif" width="92"> | <img src="pets/sprig/previews/running-right.gif" width="92"> | <img src="pets/sprig/previews/running-left.gif" width="92"> | <img src="pets/sprig/previews/waving.gif" width="92"> | <img src="pets/sprig/previews/jumping.gif" width="92"> | <img src="pets/sprig/previews/running.gif" width="92"> | <img src="pets/sprig/previews/review.gif" width="92"> | <img src="pets/sprig/previews/waiting.gif" width="92"> | <img src="pets/sprig/previews/failed.gif" width="92"> |
+| <sub>resting</sub> | <sub>dragged right</sub> | <sub>dragged left</sub> | <sub>greeting</sub> | <sub>on hover</sub> | <sub>thinking</sub> | <sub>inspecting</sub> | <sub>needs you</sub> | <sub>cancelled</sub> |
+
+<sub>9 animation lanes + 16 look directions · full 8×11 atlas · [pet page](pets/sprig/README.md)</sub>
+
+### Cobble &nbsp;·&nbsp; `rock`  ·  HP 55 · ATK 45 · DEF 75 · SPD 30
+
+| Idle | Run → | ← Run | Wave | Hop | Work | Review | Wait | Fail |
+|---|---|---|---|---|---|---|---|---|
+| <img src="pets/cobble/previews/idle.gif" width="92"> | <img src="pets/cobble/previews/running-right.gif" width="92"> | <img src="pets/cobble/previews/running-left.gif" width="92"> | <img src="pets/cobble/previews/waving.gif" width="92"> | <img src="pets/cobble/previews/jumping.gif" width="92"> | <img src="pets/cobble/previews/running.gif" width="92"> | <img src="pets/cobble/previews/review.gif" width="92"> | <img src="pets/cobble/previews/waiting.gif" width="92"> | <img src="pets/cobble/previews/failed.gif" width="92"> |
+| <sub>resting</sub> | <sub>dragged right</sub> | <sub>dragged left</sub> | <sub>greeting</sub> | <sub>on hover</sub> | <sub>thinking</sub> | <sub>inspecting</sub> | <sub>needs you</sub> | <sub>cancelled</sub> |
+
+<sub>9 animation lanes + 16 look directions · full 8×11 atlas · [pet page](pets/cobble/README.md)</sub>
+
+### Wisp &nbsp;·&nbsp; `ghost`  ·  HP 40 · ATK 52 · DEF 36 · SPD 72
+
+| Idle | Run → | ← Run | Wave | Hop | Work | Review | Wait | Fail |
+|---|---|---|---|---|---|---|---|---|
+| <img src="pets/wisp/previews/idle.gif" width="92"> | <img src="pets/wisp/previews/running-right.gif" width="92"> | <img src="pets/wisp/previews/running-left.gif" width="92"> | <img src="pets/wisp/previews/waving.gif" width="92"> | <img src="pets/wisp/previews/jumping.gif" width="92"> | <img src="pets/wisp/previews/running.gif" width="92"> | <img src="pets/wisp/previews/review.gif" width="92"> | <img src="pets/wisp/previews/waiting.gif" width="92"> | <img src="pets/wisp/previews/failed.gif" width="92"> |
+| <sub>resting</sub> | <sub>dragged right</sub> | <sub>dragged left</sub> | <sub>greeting</sub> | <sub>on hover</sub> | <sub>thinking</sub> | <sub>inspecting</sub> | <sub>needs you</sub> | <sub>cancelled</sub> |
+
+<sub>9 animation lanes + 16 look directions · full 8×11 atlas · [pet page](pets/wisp/README.md)</sub>
+
+<!-- ELEMENTAL-GALLERY:END -->
 
 > These are deliberately **not** Pokémon. We declined to generate any: they are Nintendo/Game Freak's
 > intellectual property, and we cannot license someone else's characters CC0. Art you cannot legally

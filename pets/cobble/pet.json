@@ -1,0 +1,15 @@
+{
+  "id": "cobble",
+  "displayName": "Cobble",
+  "description": "Cobble — a Codex pet.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp",
+  "type": "rock",
+  "attributes": {
+    "type": "rock",
+    "hp": 55,
+    "atk": 45,
+    "def": 75,
+    "spd": 30
+  }
+}
