@@ -1,7 +1,7 @@
 # 🐣 hatch-pet-plus — make any Codex pet, in any style
 
 A plugin for **Codex** and **Claude Code** that turns a concept — or a piece of character art — into a
-fully animated Codex pet. Plus **[19 ready-to-install pets](pets/)** — one of which **evolves** — and
+fully animated Codex pet. Plus **[21 ready-to-install packs](pets/)** — one of which **evolves** — and
 free CC0 mascot art.
 
 <p align="center">
@@ -215,8 +215,8 @@ cd hatch-pet-plus
 ./install.sh                 # plugin, both hosts
 ./install.sh --codex         # Codex only
 ./install.sh --claude        # Claude Code only
-./install.sh --list          # list the 19 pets
-./install.sh --pet           # install ALL 19 pets
+./install.sh --list          # list the 21 pet packs
+./install.sh --pet           # install ALL 21 pet packs
 ./install.sh --pet mossback  # install one
 ```
 
@@ -229,7 +229,7 @@ single `skills/` folder, so it installs into either host.
 ### The pets
 
 ```bash
-./install.sh --pet mossback     # or any of the 19
+./install.sh --pet mossback     # or any of the 21 packs
 ./install.sh --pet              # all of them
 ```
 
@@ -419,3 +419,15 @@ install.sh                  local install for both hosts
 - **`assets/`** — CC0 / public domain. Use freely.
 - **`plugins/hatch-pet-plus/skills/hatch-pet/`** — OpenAI's [`hatch-pet`](https://github.com/openai/skills/tree/main/skills/.curated/hatch-pet) skill; its own licence applies (see the LICENSE.txt in that directory).
 - **Everything else** (plugin wrapper, installer, docs) — MIT.
+
+
+## Portfolio motion extensions
+
+Inko and Bunny have separate motion packs for eight travel directions, front-facing
+start/stop, rest, sleep, carry and celebration. The original Codex v2 atlases and
+manifests are unchanged. East/west and celebration reuse their approved original
+animation lanes; new directions and behavior were generated with the hatch-pet
+reference workflow and independently reviewed. See [motion format and QA](docs/MOTION-PACKS.md).
+
+The current library contains 21 installable packs and 25 atlas files, including
+styles and evolution stages. Historical showcase images above depict the older set.

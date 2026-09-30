@@ -53,7 +53,12 @@ Use this skill's scripts for deterministic image work only: preparing layout gui
 
 ## Runtime Dependencies
 
-Before running any bundled script, call `load_workspace_dependencies`. Set `PYTHON` to the exact Python executable path returned by that tool and use `"$PYTHON"` for every command below. The bundled runtime includes Pillow, which these scripts require. Do not use a bare system `python`; if workspace dependencies are unavailable, stop and report that the bundled runtime is required.
+Before running bundled scripts, use `load_workspace_dependencies` when the host exposes it and set `PYTHON` to its returned executable. For standalone repository workflows, run `scripts/bootstrap-motion-runtime.sh` from the repository root instead: it creates a repository-local virtual environment with pinned Pillow and verifies WebP support, then prints the exact Python executable. Set `PYTHON` to that output for every deterministic script. If both runtime paths fail, stop with the setup error; do not use an unrelated project environment.
+
+### Optional motion packs
+
+Codex v2 atlases keep their existing 8x11 geometry. Website/game locomotion belongs in a separate `pets/<id>/motion/manifest.json` extension; see `docs/MOTION-PACKS.md`. Gaze directions are attention poses, not walking orientations. All new strip artwork still uses imagegen and the same identity, transparency, registration and independent visual review gates. Existing approved rows need not be regenerated. Native-alpha imagegen output is preferred for extensions; deterministic processing may extract/align/pack it, never paint replacement artwork.
+
 
 ## Storage Controls
 
