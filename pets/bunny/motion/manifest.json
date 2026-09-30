@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "petId": "bunny",
+  "cell": {
+    "width": 192,
+    "height": 208
+  },
+  "clips": {
+    "walk-se": {
+      "file": "walk-se.webp",
+      "frames": 8,
+      "frameMs": 120,
+      "loop": true,
+      "direction": "se"
+    },
+    "walk-n": {
+      "file": "walk-n.webp",
+      "frames": 8,
+      "frameMs": 120,
+      "loop": true,
+      "direction": "n"
+    },
+    "walk-ne": {
+      "file": "walk-ne.webp",
+      "frames": 8,
+      "frameMs": 120,
+      "loop": true,
+      "direction": "ne"
+    },
+    "walk-s": {
+      "file": "walk-s.webp",
+      "frames": 8,
+      "frameMs": 120,
+      "loop": true,
+      "direction": "s"
+    },
+    "walk-e": {
+      "file": "walk-e.webp",
+      "frames": 8,
+      "frameMs": 120,
+      "loop": true,
+      "direction": "e"
+    },
+    "walk-w": {
+      "file": "walk-w.webp",
+      "frames": 8,
+      "frameMs": 120,
+      "loop": true,
+      "direction": "w"
+    },
+    "walk-nw": {
+      "file": "walk-nw.webp",
+      "frames": 8,
+      "frameMs": 120,
+      "loop": true,
+      "direction": "nw"
+    },
+    "walk-sw": {
+      "file": "walk-sw.webp",
+      "frames": 8,
+      "frameMs": 120,
+      "loop": true,
+      "direction": "sw"
+    },
+    "sleep": {
+      "file": "sleep.webp",
+      "frames": 8,
+      "frameMs": 220,
+      "loop": true,
+      "direction": "s"
+    },
+    "start-s": {
+      "file": "start-s.webp",
+      "frames": 4,
+      "frameMs": 100,
+      "loop": false,
+      "direction": "s"
+    },
+    "stop-s": {
+      "file": "stop-s.webp",
+      "frames": 4,
+      "frameMs": 100,
+      "loop": false,
+      "direction": "s"
+    },
+    "carry": {
+      "file": "carry.webp",
+      "frames": 8,
+      "frameMs": 160,
+      "loop": true,
+      "direction": "s"
+    },
+    "rest": {
+      "file": "rest.webp",
+      "frames": 8,
+      "frameMs": 220,
+      "loop": true,
+      "direction": "s"
+    },
+    "celebrate": {
+      "file": "celebrate.webp",
+      "frames": 4,
+      "frameMs": 175,
+      "loop": false,
+      "direction": "s"
+    }
+  }
+}
